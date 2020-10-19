@@ -20,40 +20,11 @@
         </activity>
 
         <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/ThemeCropImagePicker" />
-
-        <activity
-            android:name="com.sazib.ksl.ui.add_product.AddProductActivity"
+            android:name="com.sazib.ksl.ui.register.RegisterActivity"
             android:exported="true" />
 
         <activity
-            android:name="com.sazib.ksl.ui.bills.BillActivity"
-            android:exported="true"
-            android:windowSoftInputMode="stateHidden" />
-
-        <activity
-            android:name="com.sazib.ksl.ui.signup.SignupActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="com.sazib.ksl.ui.bills.TabBillsActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="com.sazib.ksl.ui.categories.CategoriesActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="com.sazib.ksl.ui.pin_verification.PinVerificationActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="com.sazib.ksl.ui.inventory.InventoryActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="com.sazib.ksl.ui.pos_system.PosSystemActivity"
+            android:name="com.sazib.ksl.ui.view_customer.ViewCustomerActivity"
             android:exported="true" />
 
         <meta-data
@@ -72,12 +43,6 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

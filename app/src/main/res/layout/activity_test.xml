@@ -1,10 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context="com.sazib.ksl.ui.MainActivity">
+    tools:context="com.sazib.ksl.ui.MainActivity"
+    >
 
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutName"
+      android:layout_width="@dimen/dp_307"
+      android:layout_height="@dimen/dp_65"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="@dimen/dp_52"
+      android:layout_marginStart="@dimen/dp_52"
+      android:layout_marginTop="@dimen/dp_32"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:boxCornerRadiusBottomEnd="@dimen/dp_16"
+      app:boxCornerRadiusBottomStart="@dimen/dp_16"
+      app:boxCornerRadiusTopEnd="@dimen/dp_16"
+      app:boxCornerRadiusTopStart="@dimen/dp_16"
+      app:hintEnabled="true"
+      style="@style/TextInputLayout"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/customer_name"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:nextFocusDown="@+id/inputPassword"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
+        tools:hint="@string/customer_name"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutDOB"
+      android:layout_width="@dimen/dp_307"
+      android:layout_height="@dimen/dp_65"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="@dimen/dp_52"
+      android:layout_marginStart="@dimen/dp_52"
+      android:layout_marginTop="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutName"
+      app:boxCornerRadiusBottomEnd="@dimen/dp_16"
+      app:boxCornerRadiusBottomStart="@dimen/dp_16"
+      app:boxCornerRadiusTopEnd="@dimen/dp_16"
+      app:boxCornerRadiusTopStart="@dimen/dp_16"
+      app:hintEnabled="true"
+      style="@style/TextInputLayout"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputDob"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/customer_date_of_birth"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:nextFocusDown="@+id/inputPassword"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
+        tools:hint="@string/customer_date_of_birth"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutPhoneNumber"
+      android:layout_width="@dimen/dp_307"
+      android:layout_height="@dimen/dp_65"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="@dimen/dp_52"
+      android:layout_marginStart="@dimen/dp_52"
+      android:layout_marginTop="@dimen/dp_16"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutDOB"
+      app:boxCornerRadiusBottomEnd="@dimen/dp_16"
+      app:boxCornerRadiusBottomStart="@dimen/dp_16"
+      app:boxCornerRadiusTopEnd="@dimen/dp_16"
+      app:boxCornerRadiusTopStart="@dimen/dp_16"
+      app:hintEnabled="true"
+      style="@style/TextInputLayout"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/customer_phone_number"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:nextFocusDown="@+id/inputPassword"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
+        tools:hint="@string/customer_phone_number"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutPostCode"
+      android:layout_width="@dimen/dp_307"
+      android:layout_height="@dimen/dp_65"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="@dimen/dp_52"
+      android:layout_marginStart="@dimen/dp_52"
+      android:layout_marginTop="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutPhoneNumber"
+      app:boxCornerRadiusBottomEnd="@dimen/dp_16"
+      app:boxCornerRadiusBottomStart="@dimen/dp_16"
+      app:boxCornerRadiusTopEnd="@dimen/dp_16"
+      app:boxCornerRadiusTopStart="@dimen/dp_16"
+      app:hintEnabled="true"
+      style="@style/TextInputLayout"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputPostCode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/customer_postal_code"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:nextFocusDown="@+id/inputPassword"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
+        tools:hint="@string/customer_postal_code"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutPostOffice"
+      android:layout_width="@dimen/dp_307"
+      android:layout_height="@dimen/dp_65"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="@dimen/dp_52"
+      android:layout_marginStart="@dimen/dp_52"
+      android:layout_marginTop="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutPostCode"
+      app:boxCornerRadiusBottomEnd="@dimen/dp_16"
+      app:boxCornerRadiusBottomStart="@dimen/dp_16"
+      app:boxCornerRadiusTopEnd="@dimen/dp_16"
+      app:boxCornerRadiusTopStart="@dimen/dp_16"
+      app:hintEnabled="true"
+      style="@style/TextInputLayout"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputPostOffice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/customer_post_office"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:nextFocusDown="@+id/inputPassword"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
+        tools:hint="@string/customer_post_office"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutThana"
+      android:layout_width="@dimen/dp_307"
+      android:layout_height="@dimen/dp_65"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="@dimen/dp_52"
+      android:layout_marginStart="@dimen/dp_52"
+      android:layout_marginTop="@dimen/dp_16"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutPostOffice"
+      app:boxCornerRadiusBottomEnd="@dimen/dp_16"
+      app:boxCornerRadiusBottomStart="@dimen/dp_16"
+      app:boxCornerRadiusTopEnd="@dimen/dp_16"
+      app:boxCornerRadiusTopStart="@dimen/dp_16"
+      app:hintEnabled="true"
+      style="@style/TextInputLayout"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputThana"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/thana"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:nextFocusDown="@+id/inputPassword"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
+        tools:hint="@string/thana"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutDistrict"
+      android:layout_width="@dimen/dp_307"
+      android:layout_height="@dimen/dp_65"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="@dimen/dp_52"
+      android:layout_marginStart="@dimen/dp_52"
+      android:layout_marginTop="@dimen/dp_16"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutThana"
+      app:boxCornerRadiusBottomEnd="@dimen/dp_16"
+      app:boxCornerRadiusBottomStart="@dimen/dp_16"
+      app:boxCornerRadiusTopEnd="@dimen/dp_16"
+      app:boxCornerRadiusTopStart="@dimen/dp_16"
+      app:hintEnabled="true"
+      style="@style/TextInputLayout"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputDistrict"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/district"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:nextFocusDown="@+id/inputPassword"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
+        tools:hint="@string/district"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

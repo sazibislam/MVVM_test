@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".ui.MainActivity"
+    >
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/iv_customer_device"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/ic_settings"
+      />
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/btnRegister"
+      android:layout_width="wrap_content"
+      android:layout_height="@dimen/button_height"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/gd_middle"
+      style="@style/button"
+      >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginStart="@dimen/dp_32"
+        android:text="@string/register_customer"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/buttonTextStyle"
+        />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/btnViewCustomer"
+      android:layout_width="@dimen/dp_0"
+      android:layout_height="@dimen/button_height"
+      android:layout_marginTop="@dimen/dp_32"
+      app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+      app:layout_constraintStart_toStartOf="@+id/btnRegister"
+      app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+      style="@style/button"
+      >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtViewCustomer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginStart="@dimen/dp_32"
+        android:text="@string/view_customer"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/buttonTextStyle"
+        />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/gd_middle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintGuide_percent=".50"
+      app:layout_constraintStart_toStartOf="parent"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
