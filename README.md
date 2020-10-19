@@ -1,5 +1,5 @@
 # MVVM_test
-#MVVM £KOTLIN #ROOM # COROUTINR #LIVE DATA
+#MVVM £KOTLIN #ROOM # COROUTINE #LIVE DATA
 
 here are some screen shoots: _release
 
