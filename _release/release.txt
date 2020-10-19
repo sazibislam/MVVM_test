@@ -1,0 +1,12 @@
+key store name : pos-customer.jks
+key store password : posSAZIB
+
+Alias : pos_customer
+password : pos_customer
+validity years : 200
+First and Last Name : Saiful Sazib
+Organizational Unit: technest
+Organization: technest
+City: Dhaka
+State: Dhaka
+Country Code: BD
