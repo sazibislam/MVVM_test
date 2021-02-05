@@ -1,4 +1,4 @@
-package com.sazib.ksl.ui
+package com.sazib.ksl.ui.main
 
 import android.os.Bundle
 import android.view.View

@@ -1,4 +1,4 @@
-package com.sazib.ksl.ui
+package com.sazib.ksl.ui.main
 
 import android.util.Log
 import com.sazib.ksl.data.db.DbHelper

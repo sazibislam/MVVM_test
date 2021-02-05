@@ -1,4 +1,4 @@
-package com.sazib.ksl.ui
+package com.sazib.ksl.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
