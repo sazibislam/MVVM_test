@@ -1,6 +1,6 @@
 package com.sazib.ksl.data.db
 
-import com.sazib.ksl.data.db.user.UserDetails
+import com.sazib.ksl.data.db.user_details.UserDetails
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import io.reactivex.Observable
 

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.sazib.ksl.ui.main.MainActivity">
+        <activity android:name="com.sazib.ksl.ui._registration.signin.SigninActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +21,10 @@
 
         <activity
             android:name="com.sazib.ksl.ui.register.RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.sazib.ksl.ui.main.MainActivity"
             android:exported="true" />
 
         <activity

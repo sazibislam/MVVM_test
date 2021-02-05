@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.sazib.ksl.R
 import com.sazib.ksl.data.db.AppDbHelper
-import com.sazib.ksl.data.db.user.UserDetails
+import com.sazib.ksl.data.db.user_details.UserDetails
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.view_customer.ViewCustomerActivity

@@ -3,7 +3,7 @@ package com.sazib.ksl.ui.register
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sazib.ksl.data.db.DbHelper
-import com.sazib.ksl.data.db.user.UserDetails
+import com.sazib.ksl.data.db.user_details.UserDetails
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.ui.base.BaseViewModel
 import com.sazib.ksl.utils.Resource

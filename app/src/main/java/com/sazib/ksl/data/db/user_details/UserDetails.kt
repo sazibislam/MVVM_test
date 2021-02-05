@@ -1,4 +1,4 @@
-package com.sazib.ksl.data.db.user
+package com.sazib.ksl.data.db.user_details
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
