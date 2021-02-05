@@ -9,6 +9,7 @@ import com.sazib.ksl.data.db._sqlite_sequence.SqSequence
 import com.sazib.ksl.data.db._task.Task
 import com.sazib.ksl.data.db._user.User
 import com.sazib.ksl.data.db._user.UserDao
+import com.sazib.ksl.data.db._userTaskView.UserTaskView
 import com.sazib.ksl.data.db._user_old.UserOld
 import com.sazib.ksl.data.db._user_old.UserOldDao
 import com.sazib.ksl.data.db.post_code.PostalDetails
@@ -18,7 +19,7 @@ import com.sazib.ksl.data.db.user_details.UserDetailsDao
 import com.sazib.ksl.utils.AppConstants
 
 @Database(
-    entities = [(UserDetails::class), (PostalDetails::class), (User::class), (UserOld::class), (Task::class), (SqSequence::class)],
+    entities = [(UserDetails::class), (PostalDetails::class), (User::class), (UserOld::class), (Task::class), (SqSequence::class), (UserTaskView::class)],
     version = BuildConfig.VERSION_CODE,
     exportSchema = false
 )
@@ -46,6 +47,7 @@ abstract class AppDatabase : RoomDatabase() {
   }
 
   abstract fun userOldDao(): UserOldDao
+  abstract fun userTaskView(): UserTaskView
   abstract fun task(): Task
   abstract fun sqSequence(): SqSequence
   abstract fun userDao(): UserDao
