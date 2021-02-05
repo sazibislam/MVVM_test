@@ -2,7 +2,7 @@ package com.sazib.ksl.data.db
 
 import android.content.Context
 import com.sazib.ksl.data.db.user.UserDetails
-import com.sazib.ksl.data.post_code.PostalDetails
+import com.sazib.ksl.data.db.post_code.PostalDetails
 import io.reactivex.Observable
 
 //repository class

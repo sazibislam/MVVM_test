@@ -7,8 +7,8 @@ import androidx.room.RoomDatabase
 import com.sazib.ksl.BuildConfig
 import com.sazib.ksl.data.db.user.UserDetails
 import com.sazib.ksl.data.db.user.UserDetailsDao
-import com.sazib.ksl.data.post_code.PostalDetails
-import com.sazib.ksl.data.post_code.PostalDetailsDao
+import com.sazib.ksl.data.db.post_code.PostalDetails
+import com.sazib.ksl.data.db.post_code.PostalDetailsDao
 import com.sazib.ksl.utils.AppConstants
 
 @Database(

@@ -1,4 +1,4 @@
-package com.sazib.ksl.data.post_code
+package com.sazib.ksl.data.db.post_code
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

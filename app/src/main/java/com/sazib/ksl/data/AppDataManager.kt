@@ -3,9 +3,8 @@ package com.sazib.ksl.data
 import com.sazib.ksl.data.db.AppDbHelper
 import com.sazib.ksl.data.service.App
 
-class AppDataManager : DataManager {
+class AppDataManager  {
 
-  //   val appApiHelper: AppApiHelper = AppApiHelper.getInstance(PosApp.getInstance())
   val appDbHelper: AppDbHelper = AppDbHelper(App.getInstance())
 
   companion object {

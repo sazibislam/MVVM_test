@@ -2,7 +2,7 @@ package com.sazib.ksl.ui.main
 
 import android.util.Log
 import com.sazib.ksl.data.db.DbHelper
-import com.sazib.ksl.data.post_code.PostalDetails
+import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.ui.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
