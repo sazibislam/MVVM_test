@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sazib.ksl.R
 import com.sazib.ksl.data.db.user_details.UserDetails
-import com.sazib.ksl.utils.BaseViewHolder
-import kotlinx.android.synthetic.main.row_view_user.view.postName
-import kotlinx.android.synthetic.main.row_view_user.view.postPhone
+import com.sazib.ksl.ui.base.BaseViewHolder
+import kotlinx.android.synthetic.main.row_view_user.view.*
 
 class CustomerAdapter(private val data: MutableList<UserDetails> = ArrayList()) : RecyclerView.Adapter<BaseViewHolder>() {
 
