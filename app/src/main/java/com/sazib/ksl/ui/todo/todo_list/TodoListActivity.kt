@@ -9,15 +9,23 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.content.ContextCompat
+import androidx.core.util.Supplier
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sazib.ksl.R
+import com.sazib.ksl.data.AppDataManager
+import com.sazib.ksl.data.api.ApiService
 import com.sazib.ksl.data.db.post_code.PostalDetails
+import com.sazib.ksl.data.pref.PreferencesHelper
+import com.sazib.ksl.data.service.App
 import com.sazib.ksl.ui.base.BaseActivity
+import com.sazib.ksl.ui.base.ViewModelProviderFactory
 import com.sazib.ksl.ui.todo.todo_list.adapter.EditAdapter
 import kotlinx.android.synthetic.main.activity_todo_list.*
+import javax.inject.Inject
 
 class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
 
@@ -26,6 +34,8 @@ class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
   lateinit var taskAdapter: EditAdapter
   private lateinit var colorDrawableBackground: ColorDrawable
   private lateinit var deleteIcon: Drawable
+  @Inject lateinit var apiHelper: ApiService
+  @Inject lateinit var pref: PreferencesHelper
 
   companion object {
     private const val TAG = "todo_list_activity"
@@ -47,6 +57,8 @@ class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
 
   private fun initView() {
 
+    App.appComponent.inject(this@TodoListActivity)
+
     taskAdapter = EditAdapter()
     layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
 
@@ -58,23 +70,11 @@ class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
       }
     }
 
-//    vm =
-//      ViewModelProvider(this, InventoryViewModelFactory(AppDataManager.getInstance().appDbHelper))
-//        .get(TodoListActivityVM::class.java)
-//        .also { data_ ->
-//          data_.getData()
-//            .observe(this, Observer {
-//              when (it.status) {
-//                Status.SUCCESS -> it.data?.let { data_ -> inventoryAdapter.addDataToList(data_) }
-//                Status.LOADING -> {
-//                  Log.d("data_category", "Progress")
-//                }
-//                Status.ERROR -> {
-//                  Log.d("data_category", "error")
-//                }
-//              }
-//            })
-//        }
+    val supplier =
+      Supplier { TodoListActivityVM(apiHelper, AppDataManager.getInstance().appDbHelper) }
+    val factory = ViewModelProviderFactory(TodoListActivityVM::class.java, supplier)
+    vm =
+      ViewModelProvider(this, factory).get<TodoListActivityVM>(TodoListActivityVM::class.java)
   }
 
   private fun initListener() {
