@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">KSL</string>
+  <string name="app_name">MVVM</string>
   <string name="send_pin">send pin</string>
   <string name="sign_in_with_facebook">sign in with facebook</string>
   <string name="sign_in_with_google">sign in with google</string>
