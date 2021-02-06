@@ -18,4 +18,13 @@
   <color name="colorTransparent">@android:color/transparent</color>
   <color name="colorPremium">#18A378</color>
 
+  <!--todoapp color-->
+
+  <color name="colorTodoRed">#FC4850</color>
+  <color name="colorTodoDelete">#EF2375</color>
+  <color name="colorTodo1">#42AAFD</color>
+  <color name="colorTodo2">#01BACC</color>
+  <color name="colorTodo3">#CD42FD</color>
+  <color name="colorTodo4">#8539F9</color>
+
 </resources>
