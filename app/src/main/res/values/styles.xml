@@ -5,7 +5,7 @@
     <item name="android:windowContentOverlay">@null</item>
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorAccent">@color/colorBlack</item>
     <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     <item name="android:textColorPrimary">@color/colorBlack</item>
     <item name="android:textColor">@color/text_color</item>
@@ -23,6 +23,10 @@
     <item name="checkboxStyle">@style/checkboxStyle</item>
     <item name="android:checkboxStyle">@style/checkboxStyle</item>
   </style>
+
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
   <!--Crop ImagePicker-->
   <style name="ThemeCropImagePicker" parent="@style/Theme.AppCompat">
@@ -51,7 +55,7 @@
     <item name="android:layout_marginBottom">2dp</item>
     <item name="android:layout_marginLeft">2dp</item>
     <item name="android:layout_marginRight">2dp</item>
-    <item name="android:textColor">@color/text_color</item>
+    <item name="android:textColor">@color/colorBlack</item>
   </style>
 
   <!--bottom sheet Style start-->
@@ -82,7 +86,7 @@
 
   <!--button -->
   <style name="button" parent="AppTheme">
-    <item name="android:background">@drawable/ic_btn_filled_description</item>
+    <item name="android:background">@drawable/ic_btn_add_task</item>
     <item name="android:textColor">@color/colorWhite</item>
     <item name="android:textAppearance">@style/TextAppearance.Text.Regular</item>
     <item name="android:layout_height">@dimen/button_height</item>
@@ -107,12 +111,25 @@
     <item name="android:textAllCaps">true</item>
   </style>
 
+  <style name="SpinnerStyle" parent="android:style/Widget.ListView.DropDown">
+    <item name="android:divider">@color/colorTransparent</item>
+    <item name="android:dividerHeight">1dp</item>
+  </style>
+
+  <style name="SpinnerTheme" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+    <item name="android:dropDownListViewStyle">@style/SpinnerStyle</item>
+    <item name="android:drawSelectorOnTop">true</item>
+    <item name="android:dropDownWidth">match_parent</item>
+    <item name="android:spinnerMode">dialog</item>
+    <item name="android:gravity">center</item>
+  </style>
+
   <!--login button textStyle-->
   <style name="buttonTextStyle">
     <item name="android:textAppearance">@style/TextAppearance.Text.Regular</item>
     <item name="android:textColor">@color/colorWhite</item>
     <item name="android:letterSpacing">0.02</item>
-    <item name="android:textAllCaps">true</item>
+    <item name="android:textAllCaps">false</item>
   </style>
 
   <!--cart button textStyle-->

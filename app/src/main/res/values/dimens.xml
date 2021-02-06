@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <dimen name="button_height">64dp</dimen>
+  <dimen name="button_height">40dp</dimen>
   <dimen name="button_width">307dp</dimen>
 
   <dimen name="button_ic_width">22dp</dimen>
@@ -86,5 +86,7 @@
   <dimen name="dp_3">3dp</dimen>
   <dimen name="dp_42">42dp</dimen>
   <dimen name="dp_90">90dp</dimen>
+  <dimen name="sp_24">24sp</dimen>
+  <dimen name="sp_20">20sp</dimen>
 
 </resources>

@@ -26,16 +26,43 @@
         <activity
             android:name="com.sazib.ksl.ui.main.MainActivity"
             android:exported="true" />
-
         <activity
-            android:name="com.sazib.ksl.ui.view_customer.ViewCustomerActivity"
+            android:name="com.sazib.ksl.ui._registration.reset_pass.ResetPassActivity"
             android:exported="true" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <activity
+            android:name="com.sazib.ksl.ui._registration.successfull.SuccessfulActivity"
+            android:exported="true" />
 
-        <meta-data
+      <activity
+          android:name="com.sazib.ksl.ui._registration.forget_pass.ForgetPassActivity"
+          android:exported="true" />
+
+      <activity
+          android:name="com.sazib.ksl.ui._registration.walkthrough.WalkThroughActivity"
+          android:exported="true" />
+
+      <activity
+          android:name="com.sazib.ksl.ui.todo.add_task.AddTaskActivity"
+          android:exported="true" />
+
+      <activity
+          android:name="com.sazib.ksl.ui.todo.edit_task.EditTaskActivity"
+          android:exported="true" />
+
+      <activity
+          android:name="com.sazib.ksl.ui.todo.todo_list.TodoListActivity"
+          android:exported="true" />
+
+      <activity
+          android:name="com.sazib.ksl.ui.view_customer.ViewCustomerActivity"
+          android:exported="true" />
+
+      <meta-data
+          android:name="preloaded_fonts"
+          android:resource="@array/preloaded_fonts" />
+
+      <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
