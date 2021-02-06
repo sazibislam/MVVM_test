@@ -132,4 +132,8 @@
   <string name="add_task">Add task</string>
   <string name="choose_date">Choose date</string>
   <string name="choose_task_type">Choose task type</string>
+  <string name="hey_tamara">Hey Tamara</string>
+  <string name="today_you_have_12_tasks">Today you have 12 tasks</string>
+  <string name="tasks_created">tasks created</string>
+  <string name="tasks_left">tasks left</string>
 </resources>
