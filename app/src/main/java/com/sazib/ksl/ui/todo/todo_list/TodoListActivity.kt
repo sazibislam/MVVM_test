@@ -109,7 +109,8 @@ class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
         isCurrentlyActive: Boolean
       ) {
         val itemView = viewHolder.itemView
-        val iconMarginVertical = (viewHolder.itemView.height - deleteIcon.intrinsicHeight) / 2
+        val iconMarginVertical =
+          (viewHolder.itemView.height - deleteIcon.intrinsicHeight) / 2
 
         if (dX > 0) {
           colorDrawableBackground.setBounds(
