@@ -86,5 +86,7 @@
   <dimen name="dp_3">3dp</dimen>
   <dimen name="dp_42">42dp</dimen>
   <dimen name="dp_90">90dp</dimen>
+  <dimen name="sp_24">24sp</dimen>
+  <dimen name="sp_20">20sp</dimen>
 
 </resources>
