@@ -1,11 +1,14 @@
 package com.sazib.ksl.ui.base
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
+import android.net.ConnectivityManager
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sazib.ksl.ui.base.BaseFragment.CallBack
 
@@ -22,6 +25,9 @@ abstract class BaseActivity : AppCompatActivity(), KSLView, CallBack {
   override fun onFragmentDetached(tag: String) {
 
   }
+
+  fun showMsg(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT)
+      .show()
 
   private fun makeAlert(
     title: String?,
@@ -77,5 +83,14 @@ abstract class BaseActivity : AppCompatActivity(), KSLView, CallBack {
     } else {
       @Suppress("DEPRECATION") return Html.fromHtml(this)
     }
+  }
+
+  /*
+  *
+  * */
+  fun isNetworkConnected(mContext: Context): Boolean {
+    val cm = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val ni = cm.activeNetworkInfo
+    return ni != null
   }
 }

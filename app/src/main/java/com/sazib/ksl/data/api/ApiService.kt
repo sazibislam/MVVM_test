@@ -1,8 +1,13 @@
 package com.sazib.ksl.data.api
 
+import com.sazib.ksl.data.api.response.SigninResponse
+import io.reactivex.Observable
+
 interface ApiService {
 
-//    fun getUsers(): Single<List<User>>
+  fun getApiHeader(): ApiHeader
+
+  fun login(data: Map<String, String>): Observable<SigninResponse>
 
 //    fun doFacebookLoginApiCall(request: LoginRequest.FacebookLoginRequest?): Single<LoginResponse?>?
 //

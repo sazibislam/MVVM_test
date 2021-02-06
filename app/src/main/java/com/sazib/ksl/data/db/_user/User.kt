@@ -13,7 +13,7 @@ data class User(
   @ColumnInfo(name = "id") var id: Int? = 0,
 
   @Expose @SerializedName("username")
-  @ColumnInfo(name = "name") var name: String? = null,
+  @ColumnInfo(name = "username") var username: String? = null,
 
   @Expose @SerializedName("email")
   @ColumnInfo(name = "email") var email: String? = null,

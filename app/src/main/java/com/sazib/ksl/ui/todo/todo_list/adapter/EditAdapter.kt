@@ -1,6 +1,5 @@
 package com.sazib.ksl.ui.todo.todo_list.adapter
 
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.sazib.ksl.R
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.ui.base.BaseViewHolder
-import kotlinx.android.synthetic.main.row_view_todo.view.*
+import kotlinx.android.synthetic.main.row_view_todo.view.tvBody
+import kotlinx.android.synthetic.main.row_view_todo.view.tvTitle
 
 class EditAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
   RecyclerView.Adapter<BaseViewHolder>() {
@@ -17,7 +17,6 @@ class EditAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
   private var removedPosition: Int = 0
   private lateinit var removedItem: PostalDetails
   private var callback: Callback? = null
-  private lateinit var colorDrawableBackground: ColorDrawable
 
   override fun getItemCount() = data.size
 

@@ -24,7 +24,7 @@ class ViewCustomerActivityVM(private val dbHelper: DbHelper) : BaseViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ userListData_ ->
               userListData.postValue(Resource.success(userListData_))
-            }, { userListData.postValue(Resource.error("Something Went Wrong", null)) })
+            }, { userListData.postValue(Resource.error("Something Went Wrong", null, null)) })
     )
   }
 

@@ -19,11 +19,11 @@ import com.sazib.ksl.R
 import com.sazib.ksl.data.AppDataManager
 import com.sazib.ksl.data.api.ApiService
 import com.sazib.ksl.data.db.post_code.PostalDetails
-import com.sazib.ksl.data.pref.PreferencesHelper
 import com.sazib.ksl.data.service.App
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.base.ViewModelProviderFactory
 import com.sazib.ksl.ui.todo.todo_list.adapter.EditAdapter
+import com.sazib.ksl.utils.DataUtils.getPostalDetails
 import kotlinx.android.synthetic.main.activity_todo_list.*
 import javax.inject.Inject
 
@@ -35,7 +35,6 @@ class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
   private lateinit var colorDrawableBackground: ColorDrawable
   private lateinit var deleteIcon: Drawable
   @Inject lateinit var apiHelper: ApiService
-  @Inject lateinit var pref: PreferencesHelper
 
   companion object {
     private const val TAG = "todo_list_activity"
@@ -68,6 +67,7 @@ class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
       adapter = this@TodoListActivity.taskAdapter.apply {
         setCallback(this@TodoListActivity)
       }
+      taskAdapter.addDataToList(getPostalDetails())
     }
 
     val supplier =

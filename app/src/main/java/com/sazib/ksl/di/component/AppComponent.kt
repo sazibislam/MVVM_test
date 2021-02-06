@@ -4,6 +4,7 @@ import android.app.Application
 import com.sazib.ksl.data.service.App
 import com.sazib.ksl.di.module.AppModule
 import com.sazib.ksl.ui._registration.signin.SigninActivity
+import com.sazib.ksl.ui.todo.edit_task.EditTaskActivity
 import com.sazib.ksl.ui.todo.todo_list.TodoListActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -23,7 +24,7 @@ interface AppComponent {
 
   fun inject(app: App)
 
-  /*activity*/
-  fun inject(splashActivity: SigninActivity)
+  fun inject(signinActivity: SigninActivity)
   fun inject(todoListActivity: TodoListActivity)
+  fun inject(editTaskActivity: EditTaskActivity)
 }

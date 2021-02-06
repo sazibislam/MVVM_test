@@ -3,8 +3,8 @@ package com.sazib.ksl.ui.register
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sazib.ksl.data.db.DbHelper
-import com.sazib.ksl.data.db.user_details.UserDetails
 import com.sazib.ksl.data.db.post_code.PostalDetails
+import com.sazib.ksl.data.db.user_details.UserDetails
 import com.sazib.ksl.ui.base.BaseViewModel
 import com.sazib.ksl.utils.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -27,7 +27,7 @@ class RegisterActivityVM(private val dbHelper: DbHelper) : BaseViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ _ ->
               userListData.postValue(Resource.success(null))
-            }, { userListData.postValue(Resource.error("Something Went Wrong", null)) })
+            }, { userListData.postValue(Resource.error("Something Went Wrong", null, null)) })
     )
   }
 
@@ -53,7 +53,7 @@ class RegisterActivityVM(private val dbHelper: DbHelper) : BaseViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ postData_ ->
               postalListData.postValue(Resource.success(postData_))
-            }, { postalListData.postValue(Resource.error("Something Went Wrong", null)) })
+            }, { postalListData.postValue(Resource.error("Something Went Wrong", null, null)) })
     )
   }
 

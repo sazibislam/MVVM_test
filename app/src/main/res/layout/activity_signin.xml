@@ -90,10 +90,9 @@
 
     <TextView
         android:id="@+id/tvForgetPass"
-        android:layout_width="@dimen/dp_0"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dp_32"
-        android:layout_marginStart="@dimen/dp_32"
         android:ellipsize="end"
         android:gravity="end"
         android:maxLines="1"
@@ -103,7 +102,6 @@
         android:textSize="@dimen/sp_18"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layouPassword"
         tools:text="Forget Password"
         style="@style/TextAppearance.AppCompat.Medium"
@@ -200,7 +198,7 @@
             android:id="@+id/inputUserName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/dummy_email"
+            android:hint="@string/enter_username"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:nextFocusDown="@+id/inputPassword"
@@ -210,7 +208,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivSigninProfile"
-            tools:hint="pangcheo1210@gmail.com"
+            tools:hint="@string/enter_username"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

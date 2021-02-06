@@ -8,11 +8,10 @@ import androidx.room.Query
 @Dao
 interface UserDao {
 
-  @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun insertAll(user: List<User>)
-
+  @Insert(onConflict = OnConflictStrategy.REPLACE) fun insertAll(user: List<User>)
   @Query("SELECT * FROM User ORDER BY id DESC LIMIT 10") fun loadAll(): List<User>
-
   @Query("DELETE FROM User") fun deleteAll()
 
+  @Query("SELECT * FROM User WHERE userName = :userName")
+  fun loadUser(userName: String): List<User>
 }

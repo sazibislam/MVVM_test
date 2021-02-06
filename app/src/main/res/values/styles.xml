@@ -142,10 +142,10 @@
 
   <!--pin verification toolbar -->
   <style name="materialCardView">
-    <item name="cardBackgroundColor">@color/colorWhite</item>
-    <item name="cardCornerRadius">26dp</item>
-    <item name="cardElevation">1dp</item>
-    <item name="elevation">1dp</item>
+    <item name="cardBackgroundColor">@color/bg_color_category</item>
+    <item name="cardCornerRadius">10dp</item>
+    <item name="cardElevation">2dp</item>
+    <item name="elevation">2dp</item>
     <item name="android:translationZ">3dp</item>
   </style>
 
