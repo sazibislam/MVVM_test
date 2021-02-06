@@ -22,16 +22,16 @@ import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.service.App
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.base.ViewModelProviderFactory
-import com.sazib.ksl.ui.todo.todo_list.adapter.EditAdapter
+import com.sazib.ksl.ui.todo.todo_list.adapter.TodoAdapter
 import com.sazib.ksl.utils.DataUtils.getPostalDetails
 import kotlinx.android.synthetic.main.activity_todo_list.*
 import javax.inject.Inject
 
-class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
+class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
 
   private lateinit var vm: TodoListActivityVM
   lateinit var layoutManager: LinearLayoutManager
-  lateinit var taskAdapter: EditAdapter
+  lateinit var taskAdapter: TodoAdapter
   private lateinit var colorDrawableBackground: ColorDrawable
   private lateinit var deleteIcon: Drawable
   @Inject lateinit var apiHelper: ApiService
@@ -58,7 +58,7 @@ class TodoListActivity : BaseActivity(), OnClickListener, EditAdapter.Callback {
 
     App.appComponent.inject(this@TodoListActivity)
 
-    taskAdapter = EditAdapter()
+    taskAdapter = TodoAdapter()
     layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
 
     rvTask.apply {

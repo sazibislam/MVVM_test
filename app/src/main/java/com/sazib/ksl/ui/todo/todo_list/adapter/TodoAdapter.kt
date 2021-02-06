@@ -11,8 +11,8 @@ import com.sazib.ksl.ui.base.BaseViewHolder
 import kotlinx.android.synthetic.main.row_view_todo.view.tvBody
 import kotlinx.android.synthetic.main.row_view_todo.view.tvTitle
 
-class EditAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
-  RecyclerView.Adapter<BaseViewHolder>() {
+class TodoAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
+    RecyclerView.Adapter<BaseViewHolder>() {
 
   private var removedPosition: Int = 0
   private lateinit var removedItem: PostalDetails
@@ -33,8 +33,8 @@ class EditAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
     parent: ViewGroup,
     viewType: Int
   ) = ViewHolder(
-    LayoutInflater.from(parent.context)
-      .inflate(R.layout.row_view_todo, parent, false)
+      LayoutInflater.from(parent.context)
+          .inflate(R.layout.row_view_todo, parent, false)
   )
 
   internal fun addDataToList(data: List<PostalDetails>) {
@@ -71,11 +71,11 @@ class EditAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
     notifyItemRemoved(position)
 
     Snackbar.make(viewHolder.itemView, "$removedItem removed", Snackbar.LENGTH_LONG)
-      .setAction("UNDO") {
-        data.add(removedPosition, removedItem)
-        notifyItemInserted(removedPosition)
-      }
-      .show()
+        .setAction("UNDO") {
+          data.add(removedPosition, removedItem)
+          notifyItemInserted(removedPosition)
+        }
+        .show()
   }
 
   interface Callback {

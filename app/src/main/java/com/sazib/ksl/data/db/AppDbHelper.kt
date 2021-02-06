@@ -1,6 +1,7 @@
 package com.sazib.ksl.data.db
 
 import android.content.Context
+import com.sazib.ksl.data.db._task.Task
 import com.sazib.ksl.data.db._user.User
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.db.user_details.UserDetails
@@ -20,6 +21,11 @@ open class AppDbHelper(context: Context) : DbHelper {
     mAppDatabase.userDao()
         .insertAll(user)
     return Observable.just(user.count() > 0)
+  }
+
+  override suspend fun loadTaskAll(): Observable<List<Task>> = Observable.fromCallable {
+    mAppDatabase.taskDao()
+        .loadAll()
   }
 
   override suspend fun insertUserDetails(userDetails: List<UserDetails>): Observable<Boolean> {

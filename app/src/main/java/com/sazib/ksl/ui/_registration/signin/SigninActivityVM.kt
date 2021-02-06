@@ -15,7 +15,6 @@ class SigninActivityVM(
   private val dbHelper: DbHelper
 ) : BaseViewModel() {
 
-  //  private val signup = MutableLiveData<Resource<User>>()
   private val isLogin = MutableLiveData<Resource<List<User>>>()
 
   suspend fun requestLogin(
@@ -32,8 +31,10 @@ class SigninActivityVM(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ data_ ->
-              isLogin.postValue(Resource.success(data_))
-              Log.d("user data", "checking")
+              when (data_.size) {
+                0 -> Log.d("user data", "none")
+                else -> isLogin.postValue(Resource.success(data_))
+              }
             }, {})
     )
   }
@@ -45,7 +46,7 @@ class SigninActivityVM(
    * */
 /*  private val signup = MutableLiveData<Resource<SigninResponse>>()
 
-  fun signup(data: Map<String, String>) {
+  fun requestLogin(data: Map<String, String>) {
 
     signup.postValue(Resource.loading(null))
 

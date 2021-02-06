@@ -51,8 +51,8 @@ abstract class AppDatabase : RoomDatabase() {
 
   abstract fun userOldDao(): UserOldDao
   abstract fun userTaskView(): UserTaskViewDao
-  abstract fun task(): TaskDao
-  abstract fun sqSequence(): SqSequenceDao
+  abstract fun taskDao(): TaskDao
+  abstract fun sqSequenceDao(): SqSequenceDao
   abstract fun userDao(): UserDao
   abstract fun userDetailsDao(): UserDetailsDao
   abstract fun postalDetailsDao(): PostalDetailsDao
