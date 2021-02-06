@@ -2,8 +2,10 @@ package com.sazib.ksl.data.pref
 
 import android.content.SharedPreferences
 import com.sazib.ksl.utils.AppConstants
+import javax.inject.Inject
 
-class AppPreferencesHelper(private val mPrefs: SharedPreferences) : PreferencesHelper {
+class AppPreferencesHelper @Inject constructor(private val mPrefs: SharedPreferences) :
+    PreferencesHelper {
 
   companion object {
     private const val PREF_KEY_ACCESS_TOKEN = "PREF_KEY_ACCESS_TOKEN"
