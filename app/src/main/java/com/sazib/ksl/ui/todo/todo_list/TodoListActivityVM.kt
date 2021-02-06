@@ -1,9 +1,13 @@
 package com.sazib.ksl.ui.todo.todo_list
 
 import com.sazib.ksl.data.api.ApiService
+import com.sazib.ksl.data.db.DbHelper
 import com.sazib.ksl.ui.base.BaseViewModel
 
-class TodoListActivityVM(private val apiHelper: ApiService) : BaseViewModel() {
+class TodoListActivityVM(
+  private val apiHelper: ApiService,
+  private val dbHelper: DbHelper
+) : BaseViewModel() {
 
 //  private val signup = MutableLiveData<Resource<>>()
 //
