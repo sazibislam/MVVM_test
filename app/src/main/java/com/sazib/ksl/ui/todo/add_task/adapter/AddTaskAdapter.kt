@@ -1,4 +1,4 @@
-package com.sazib.ksl.ui.todo.edit_task.adapter
+package com.sazib.ksl.ui.todo.add_task.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sazib.ksl.R
 import com.sazib.ksl.ui.base.BaseViewHolder
 import com.sazib.ksl.ui.todo.edit_task.model.TaskTypeModel
-import kotlinx.android.synthetic.main.list_item_task.view.tvTaskCreated
-import kotlinx.android.synthetic.main.list_item_task.view.tvTaskCreatedTxt
+import kotlinx.android.synthetic.main.row_view_add_task.view.txtSubmit
 
-class EditAdapter(private val data: MutableList<TaskTypeModel> = ArrayList()) :
+class AddTaskAdapter(private val data: MutableList<TaskTypeModel> = ArrayList()) :
     RecyclerView.Adapter<BaseViewHolder>() {
 
   override fun getItemCount() = data.size
@@ -25,7 +24,7 @@ class EditAdapter(private val data: MutableList<TaskTypeModel> = ArrayList()) :
     viewType: Int
   ) = ViewHolder(
       LayoutInflater.from(parent.context)
-          .inflate(R.layout.list_item_task, parent, false)
+          .inflate(R.layout.row_view_add_task, parent, false)
   )
 
   internal fun addDataToList(data: List<TaskTypeModel>) {
@@ -37,15 +36,14 @@ class EditAdapter(private val data: MutableList<TaskTypeModel> = ArrayList()) :
   inner class ViewHolder(view: View) : BaseViewHolder(view) {
 
     override fun clear() {
-      itemView.tvTaskCreated.text = ""
-      itemView.tvTaskCreatedTxt.text = ""
+      itemView.txtSubmit.text = ""
     }
 
     override fun onBind(position: Int) {
 
       val model = data[position]
-      itemView.tvTaskCreated.text = model.title
-      itemView.tvTaskCreatedTxt.text = ("${model.details} tasks")
+      itemView.txtSubmit.text = model.title
+//      itemView.btnAddTask.setBackgroundColor(Color.parseColor(getColorCode(position)))
     }
   }
 }

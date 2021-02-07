@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.sazib.ksl.R
+import com.sazib.ksl.ui._registration.signin.SigninActivity
 import com.sazib.ksl.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_successful.tvLogin
 
 class SuccessfulActivity : BaseActivity(), OnClickListener {
 
@@ -28,9 +30,13 @@ class SuccessfulActivity : BaseActivity(), OnClickListener {
   }
 
   private fun initView() {
+    tvLogin.setOnClickListener(this@SuccessfulActivity)
   }
 
   override fun onClick(view: View?) {
 
+    when (view?.id) {
+      R.id.tvLogin -> startActivity(SigninActivity.getStartIntent(this@SuccessfulActivity, TAG))
+    }
   }
 }

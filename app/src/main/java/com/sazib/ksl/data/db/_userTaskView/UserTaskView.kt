@@ -15,12 +15,6 @@ data class UserTaskView(
   @Expose @SerializedName("username")
   @ColumnInfo(name = "name") var name: String? = null,
 
-  @Expose @SerializedName("email")
-  @ColumnInfo(name = "email") var email: String? = null,
-
-  @Expose @SerializedName("passwordhash")
-  @ColumnInfo(name = "passwordhash") var passwordhash: String? = null,
-
   @Expose @SerializedName("isactive")
   @ColumnInfo(name = "isactive") var isactive: Boolean? = false,
 

@@ -8,15 +8,26 @@ import android.view.View.OnClickListener
 import androidx.core.util.Supplier
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.sazib.ksl.R
 import com.sazib.ksl.data.AppDataManager
 import com.sazib.ksl.data.api.ApiService
 import com.sazib.ksl.data.service.App
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.base.ViewModelProviderFactory
+import com.sazib.ksl.ui.todo.add_task.AddTaskActivity
+import com.sazib.ksl.ui.todo.edit_task.adapter.EditAdapter
+import com.sazib.ksl.ui.todo.edit_task.adapter.TaskAdapter
+import com.sazib.ksl.utils.DataUtils
 import com.sazib.ksl.utils.Status.ERROR
 import com.sazib.ksl.utils.Status.LOADING
 import com.sazib.ksl.utils.Status.SUCCESS
+import kotlinx.android.synthetic.main.activity_edit_task.ivEditPlus
+import kotlinx.android.synthetic.main.activity_edit_task.rvTasks
+import kotlinx.android.synthetic.main.activity_edit_task.rvType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -26,12 +37,17 @@ import kotlin.coroutines.CoroutineContext
 
 class EditTaskActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
+  private lateinit var vm: EditActivityVM
+  @Inject lateinit var apiHelper: ApiService
+
+  lateinit var taskEditAdapter: EditAdapter
+  lateinit var taskListAdapter: TaskAdapter
+  lateinit var layoutManager: GridLayoutManager
+  lateinit var taskLayout: LinearLayoutManager
+
   private var job: Job = Job()
   override val coroutineContext: CoroutineContext
     get() = Dispatchers.Main + job
-
-  private lateinit var vm: EditActivityVM
-  @Inject lateinit var apiHelper: ApiService
 
   companion object {
     private const val TAG = "edit_task_activity"
@@ -52,10 +68,30 @@ class EditTaskActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
   private fun initView() {
 
+    taskEditAdapter = EditAdapter()
+    layoutManager = GridLayoutManager(this@EditTaskActivity, 2)
+
     App.appComponent.inject(this@EditTaskActivity)
     val supplier = Supplier { EditActivityVM(apiHelper, AppDataManager.getInstance().appDbHelper) }
     val factory = ViewModelProviderFactory(EditActivityVM::class.java, supplier)
     vm = ViewModelProvider(this, factory).get<EditActivityVM>(EditActivityVM::class.java)
+
+    rvType.apply {
+      layoutManager = this@EditTaskActivity.layoutManager
+      itemAnimator = DefaultItemAnimator()
+      adapter = this@EditTaskActivity.taskEditAdapter
+      taskEditAdapter.addDataToList(DataUtils.getTaskType())
+    }
+
+    taskListAdapter = TaskAdapter()
+    taskLayout = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
+
+    rvTasks.apply {
+      layoutManager = this@EditTaskActivity.taskLayout
+      itemAnimator = DefaultItemAnimator()
+      adapter = this@EditTaskActivity.taskListAdapter
+      taskListAdapter.addDataToList(DataUtils.getTaskList())
+    }
 
     launch { vm.getTaskData() }
 
@@ -71,10 +107,15 @@ class EditTaskActivity : BaseActivity(), OnClickListener, CoroutineScope {
             ERROR -> showMsg("Something Wrong")
           }
         })
+
+    ivEditPlus.setOnClickListener(this@EditTaskActivity)
   }
 
   override fun onClick(view: View?) {
 
+    when (view?.id) {
+      R.id.ivEditPlus -> startActivity(AddTaskActivity.getStartIntent(this@EditTaskActivity, TAG))
+    }
   }
 
   override fun onDestroy() {

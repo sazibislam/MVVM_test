@@ -3,7 +3,10 @@ package com.sazib.ksl.di.component
 import android.app.Application
 import com.sazib.ksl.data.service.App
 import com.sazib.ksl.di.module.AppModule
+import com.sazib.ksl.ui._registration.forget_pass.ForgetPassActivity
+import com.sazib.ksl.ui._registration.reset_pass.ResetPassActivity
 import com.sazib.ksl.ui._registration.signin.SigninActivity
+import com.sazib.ksl.ui.todo.add_task.AddTaskActivity
 import com.sazib.ksl.ui.todo.edit_task.EditTaskActivity
 import com.sazib.ksl.ui.todo.todo_list.TodoListActivity
 import dagger.BindsInstance
@@ -27,4 +30,7 @@ interface AppComponent {
   fun inject(signinActivity: SigninActivity)
   fun inject(todoListActivity: TodoListActivity)
   fun inject(editTaskActivity: EditTaskActivity)
+  fun inject(addTaskActivity: AddTaskActivity)
+  fun inject(forgetPassActivity: ForgetPassActivity)
+  fun inject(resetPassActivity: ResetPassActivity)
 }

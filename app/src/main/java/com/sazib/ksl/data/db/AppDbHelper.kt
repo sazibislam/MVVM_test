@@ -28,6 +28,20 @@ open class AppDbHelper(context: Context) : DbHelper {
         .loadAll()
   }
 
+  override suspend fun insertTaskList(task: List<Task>): Observable<Boolean> {
+    mAppDatabase.taskDao()
+        .insertAll(task)
+    return Observable.just(task.count() > 0)
+  }
+
+  override suspend fun deleteTaskList(task: List<Task>): Observable<List<Task>> =
+    Observable.fromCallable {
+      mAppDatabase.taskDao()
+          .deleteTask(task)
+      mAppDatabase.taskDao()
+          .loadAll()
+    }
+
   override suspend fun insertUserDetails(userDetails: List<UserDetails>): Observable<Boolean> {
     mAppDatabase.userDetailsDao()
         .insertAll(userDetails)

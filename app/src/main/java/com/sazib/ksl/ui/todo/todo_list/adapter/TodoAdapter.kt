@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.sazib.ksl.R
-import com.sazib.ksl.data.db.post_code.PostalDetails
+import com.sazib.ksl.data.db._task.Task
 import com.sazib.ksl.ui.base.BaseViewHolder
 import kotlinx.android.synthetic.main.row_view_todo.view.tvBody
 import kotlinx.android.synthetic.main.row_view_todo.view.tvTitle
 
-class TodoAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
+class TodoAdapter(private val data: MutableList<Task> = ArrayList()) :
     RecyclerView.Adapter<BaseViewHolder>() {
 
   private var removedPosition: Int = 0
-  private lateinit var removedItem: PostalDetails
+  private lateinit var removedItem: Task
   private var callback: Callback? = null
 
   override fun getItemCount() = data.size
@@ -37,7 +37,7 @@ class TodoAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
           .inflate(R.layout.row_view_todo, parent, false)
   )
 
-  internal fun addDataToList(data: List<PostalDetails>) {
+  internal fun addDataToList(data: List<Task>) {
     this.data.clear()
     this.data.addAll(data)
     notifyDataSetChanged()
@@ -53,8 +53,8 @@ class TodoAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
     override fun onBind(position: Int) {
 
       val model = data[position]
-      itemView.tvTitle.text = model.thana
-      itemView.tvBody.text = ("${model.district} items")
+      itemView.tvTitle.text = model.tasktitle
+      itemView.tvBody.text = model.description
     }
   }
 
@@ -65,21 +65,17 @@ class TodoAdapter(private val data: MutableList<PostalDetails> = ArrayList()) :
     removedItem = data[position]
     removedPosition = position
 
-    callback?.removeItem(data)
+    callback?.removeItem(removedItem)
 
     data.removeAt(position)
     notifyItemRemoved(position)
 
     Snackbar.make(viewHolder.itemView, "$removedItem removed", Snackbar.LENGTH_LONG)
-        .setAction("UNDO") {
-          data.add(removedPosition, removedItem)
-          notifyItemInserted(removedPosition)
-        }
         .show()
   }
 
   interface Callback {
-    fun removeItem(data: MutableList<PostalDetails>)
+    fun removeItem(data: Task)
   }
 }
 

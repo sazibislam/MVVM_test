@@ -6,10 +6,12 @@ import android.graphics.Canvas
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.content.ContextCompat
 import androidx.core.util.Supplier
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -18,16 +20,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sazib.ksl.R
 import com.sazib.ksl.data.AppDataManager
 import com.sazib.ksl.data.api.ApiService
-import com.sazib.ksl.data.db.post_code.PostalDetails
+import com.sazib.ksl.data.db._task.Task
 import com.sazib.ksl.data.service.App
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.base.ViewModelProviderFactory
 import com.sazib.ksl.ui.todo.todo_list.adapter.TodoAdapter
-import com.sazib.ksl.utils.DataUtils.getPostalDetails
+import com.sazib.ksl.utils.Status.ERROR
+import com.sazib.ksl.utils.Status.LOADING
+import com.sazib.ksl.utils.Status.SUCCESS
 import kotlinx.android.synthetic.main.activity_todo_list.*
+import kotlinx.android.synthetic.main.toolbar_todo_list.todoBack
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
-class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
+class TodoListActivity : BaseActivity(), OnClickListener, CoroutineScope, TodoAdapter.Callback {
 
   private lateinit var vm: TodoListActivityVM
   lateinit var layoutManager: LinearLayoutManager
@@ -35,6 +45,10 @@ class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
   private lateinit var colorDrawableBackground: ColorDrawable
   private lateinit var deleteIcon: Drawable
   @Inject lateinit var apiHelper: ApiService
+
+  private var job: Job = Job()
+  override val coroutineContext: CoroutineContext
+    get() = Dispatchers.Main + job
 
   companion object {
     private const val TAG = "todo_list_activity"
@@ -58,6 +72,14 @@ class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
 
     App.appComponent.inject(this@TodoListActivity)
 
+    val supplier =
+      Supplier { TodoListActivityVM(apiHelper, AppDataManager.getInstance().appDbHelper) }
+    val factory = ViewModelProviderFactory(TodoListActivityVM::class.java, supplier)
+    vm =
+      ViewModelProvider(this, factory).get<TodoListActivityVM>(TodoListActivityVM::class.java)
+
+    launch { vm.fetchTaskData() }
+
     taskAdapter = TodoAdapter()
     layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
 
@@ -67,14 +89,25 @@ class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
       adapter = this@TodoListActivity.taskAdapter.apply {
         setCallback(this@TodoListActivity)
       }
-      taskAdapter.addDataToList(getPostalDetails())
     }
 
-    val supplier =
-      Supplier { TodoListActivityVM(apiHelper, AppDataManager.getInstance().appDbHelper) }
-    val factory = ViewModelProviderFactory(TodoListActivityVM::class.java, supplier)
-    vm =
-      ViewModelProvider(this, factory).get<TodoListActivityVM>(TodoListActivityVM::class.java)
+    vm.getTaskDataResponse()
+        .observe(this, Observer {
+          when (it.status) {
+            SUCCESS -> {
+              showMsg("success")
+              it.data?.let { data_ ->
+                taskAdapter.addDataToList(data_)
+              }
+            }
+            LOADING -> {
+            }
+            ERROR -> {
+            }
+          }
+        })
+
+    todoBack.setOnClickListener(this@TodoListActivity)
   }
 
   private fun initListener() {
@@ -83,7 +116,7 @@ class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
     deleteIcon = ContextCompat.getDrawable(this, R.drawable.ic_trash)!!
 
     val itemTouchHelperCallback = object :
-      ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+        ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
       override fun onMove(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder,
@@ -114,25 +147,25 @@ class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
 
         if (dX > 0) {
           colorDrawableBackground.setBounds(
-            itemView.left, itemView.top, dX.toInt(), itemView.bottom
+              itemView.left, itemView.top, dX.toInt(), itemView.bottom
           )
           deleteIcon.setBounds(
-            itemView.left + iconMarginVertical, itemView.top + iconMarginVertical,
-            itemView.left + iconMarginVertical + deleteIcon.intrinsicWidth,
-            itemView.bottom - iconMarginVertical
+              itemView.left + iconMarginVertical, itemView.top + iconMarginVertical,
+              itemView.left + iconMarginVertical + deleteIcon.intrinsicWidth,
+              itemView.bottom - iconMarginVertical
           )
         } else {
           colorDrawableBackground.setBounds(
-            itemView.right + dX.toInt(),
-            itemView.top,
-            itemView.right,
-            itemView.bottom
+              itemView.right + dX.toInt(),
+              itemView.top,
+              itemView.right,
+              itemView.bottom
           )
           deleteIcon.setBounds(
-            itemView.right - iconMarginVertical - deleteIcon.intrinsicWidth,
-            itemView.top + iconMarginVertical,
-            itemView.right - iconMarginVertical,
-            itemView.bottom - iconMarginVertical
+              itemView.right - iconMarginVertical - deleteIcon.intrinsicWidth,
+              itemView.top + iconMarginVertical,
+              itemView.right - iconMarginVertical,
+              itemView.bottom - iconMarginVertical
           )
           deleteIcon.level = 0
         }
@@ -143,23 +176,23 @@ class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
           c.clipRect(itemView.left, itemView.top, dX.toInt(), itemView.bottom)
         else
           c.clipRect(
-            itemView.right + dX.toInt(),
-            itemView.top,
-            itemView.right,
-            itemView.bottom
+              itemView.right + dX.toInt(),
+              itemView.top,
+              itemView.right,
+              itemView.bottom
           )
 
         deleteIcon.draw(c)
         c.restore()
 
         super.onChildDraw(
-          c,
-          recyclerView,
-          viewHolder,
-          dX,
-          dY,
-          actionState,
-          isCurrentlyActive
+            c,
+            recyclerView,
+            viewHolder,
+            dX,
+            dY,
+            actionState,
+            isCurrentlyActive
         )
       }
     }
@@ -172,7 +205,13 @@ class TodoListActivity : BaseActivity(), OnClickListener, TodoAdapter.Callback {
 
   }
 
-  override fun removeItem(data: MutableList<PostalDetails>) {
+  override fun removeItem(data: Task) {
+    launch { vm.removeTaskData(data) }
+    Log.d("task", "deleted")
+  }
 
+  override fun onDestroy() {
+    job.cancel()
+    super.onDestroy()
   }
 }

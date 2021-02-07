@@ -12,6 +12,8 @@ interface DbHelper {
   suspend fun insertUser(user: List<User>): Observable<Boolean>
 
   suspend fun loadTaskAll(): Observable<List<Task>>
+  suspend fun insertTaskList(task: List<Task>): Observable<Boolean>
+  suspend fun deleteTaskList(task: List<Task>): Observable<List<Task>>
 
   suspend fun insertUserDetails(userDetails: List<UserDetails>): Observable<Boolean>
   suspend fun loadUserAll(): Observable<List<UserDetails>>

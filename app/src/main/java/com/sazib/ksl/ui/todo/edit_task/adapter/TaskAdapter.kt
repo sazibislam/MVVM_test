@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sazib.ksl.R
+import com.sazib.ksl.data.db._task.Task
 import com.sazib.ksl.ui.base.BaseViewHolder
-import com.sazib.ksl.ui.todo.edit_task.model.TaskTypeModel
-import kotlinx.android.synthetic.main.list_item_task.view.tvTaskCreated
-import kotlinx.android.synthetic.main.list_item_task.view.tvTaskCreatedTxt
+import kotlinx.android.synthetic.main.list_item_task_list.view.tvTaskBody
+import kotlinx.android.synthetic.main.list_item_task_list.view.tvTaskTitle
 
-class EditAdapter(private val data: MutableList<TaskTypeModel> = ArrayList()) :
+class TaskAdapter(private val data: MutableList<Task> = ArrayList()) :
     RecyclerView.Adapter<BaseViewHolder>() {
 
   override fun getItemCount() = data.size
@@ -25,10 +25,10 @@ class EditAdapter(private val data: MutableList<TaskTypeModel> = ArrayList()) :
     viewType: Int
   ) = ViewHolder(
       LayoutInflater.from(parent.context)
-          .inflate(R.layout.list_item_task, parent, false)
+          .inflate(R.layout.list_item_task_list, parent, false)
   )
 
-  internal fun addDataToList(data: List<TaskTypeModel>) {
+  internal fun addDataToList(data: List<Task>) {
     this.data.clear()
     this.data.addAll(data)
     notifyDataSetChanged()
@@ -37,15 +37,15 @@ class EditAdapter(private val data: MutableList<TaskTypeModel> = ArrayList()) :
   inner class ViewHolder(view: View) : BaseViewHolder(view) {
 
     override fun clear() {
-      itemView.tvTaskCreated.text = ""
-      itemView.tvTaskCreatedTxt.text = ""
+      itemView.tvTaskTitle.text = ""
+      itemView.tvTaskBody.text = ""
     }
 
     override fun onBind(position: Int) {
 
       val model = data[position]
-      itemView.tvTaskCreated.text = model.title
-      itemView.tvTaskCreatedTxt.text = ("${model.details} tasks")
+      itemView.tvTaskTitle.text = model.tasktitle
+      itemView.tvTaskBody.text = model.description
     }
   }
 }
