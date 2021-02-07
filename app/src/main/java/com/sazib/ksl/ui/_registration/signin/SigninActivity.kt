@@ -17,14 +17,8 @@ import com.sazib.ksl.ui._registration.signup.RegisterActivity
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.base.ViewModelProviderFactory
 import com.sazib.ksl.ui.todo.edit_task.EditTaskActivity
-import com.sazib.ksl.utils.Status.ERROR
-import com.sazib.ksl.utils.Status.LOADING
-import com.sazib.ksl.utils.Status.SUCCESS
-import kotlinx.android.synthetic.main.activity_signin.inputPassword
-import kotlinx.android.synthetic.main.activity_signin.inputUserName
-import kotlinx.android.synthetic.main.activity_signin.tvForgetPass
-import kotlinx.android.synthetic.main.activity_signin.tvLogin
-import kotlinx.android.synthetic.main.activity_signin.tvSignUp
+import com.sazib.ksl.utils.Status.*
+import kotlinx.android.synthetic.main.activity_signin.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -76,14 +70,13 @@ class SigninActivity : BaseActivity(), OnClickListener, CoroutineScope {
         .observe(this, Observer {
           when (it.status) {
             SUCCESS -> {
-              //show success dialog
               showMsg("Success")
               startActivity(EditTaskActivity.getStartIntent(this@SigninActivity, TAG))
               finishIt()
             }
             LOADING -> {
             }
-            ERROR -> showMsg("Something Wrong")
+            ERROR -> it.message?.let { data_ -> showMsg(data_) }
           }
         })
   }

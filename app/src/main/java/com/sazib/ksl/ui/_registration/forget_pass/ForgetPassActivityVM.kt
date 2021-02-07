@@ -23,15 +23,15 @@ class ForgetPassActivityVM(
     val data = User(null, username, "", "", false)
 
     mCompositeDisposable.add(
-        dbHelper.checkUser(data)
+        dbHelper.checkUserExist(data)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ userData_ ->
 
-              when (userData_.size) {
-                0 -> user.postValue(Resource.error("Wrong username", null, null))
-                else -> user.postValue(Resource.success(userData_))
-              }
+                when (userData_.size) {
+                    0 -> user.postValue(Resource.error("Wrong username", null, null))
+                    else -> user.postValue(Resource.success(userData_))
+                }
             }, { user.postValue(Resource.error("Something Went Wrong", null, null)) })
     )
   }

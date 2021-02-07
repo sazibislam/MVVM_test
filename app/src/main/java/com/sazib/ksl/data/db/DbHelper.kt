@@ -9,7 +9,8 @@ import io.reactivex.Observable
 interface DbHelper {
 
   suspend fun checkUser(user: User): Observable<List<User>>
-  suspend fun insertUser(user: List<User>): Observable<Boolean>
+    suspend fun checkUserExist(user: User): Observable<List<User>>
+    suspend fun insertUser(user: List<User>): Observable<Boolean>
 
   suspend fun loadTaskAll(): Observable<List<Task>>
   suspend fun insertTaskList(task: List<Task>): Observable<Boolean>

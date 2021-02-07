@@ -1,6 +1,5 @@
 package com.sazib.ksl.ui._registration.signin
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.sazib.ksl.data.api.ApiService
 import com.sazib.ksl.data.db.DbHelper
@@ -31,10 +30,16 @@ class SigninActivityVM(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ data_ ->
-              when (data_.size) {
-                0 -> Log.d("user data", "none")
-                else -> isLogin.postValue(Resource.success(data_))
-              }
+                when (data_.size) {
+                    0 -> isLogin.postValue(
+                        Resource.error(
+                            "password mismatched or user not found",
+                            null,
+                            null
+                        )
+                    )
+                    else -> isLogin.postValue(Resource.success(data_))
+                }
             }, {})
     )
   }

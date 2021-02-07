@@ -9,22 +9,28 @@ import io.reactivex.Observable
 
 open class AppDbHelper(context: Context) : DbHelper {
 
-  private val mAppDatabase: AppDatabase = AppDatabase.getInstance(context)
+    private val mAppDatabase: AppDatabase = AppDatabase.getInstance(context)
 
-  override suspend fun checkUser(user: User): Observable<List<User>> = Observable.fromCallable {
-    mAppDatabase.userDao()
-        .loadUser(userName = user.username!!, pass = user.passwordhash!!)
-  }
+    override suspend fun checkUser(user: User): Observable<List<User>> = Observable.fromCallable {
+        mAppDatabase.userDao()
+            .loadUser(userName = user.username!!, pass = user.passwordhash!!)
+    }
 
-  override suspend fun insertUser(user: List<User>): Observable<Boolean> {
-    mAppDatabase.userDao()
-        .insertAll(user)
-    return Observable.just(user.count() > 0)
-  }
+    override suspend fun checkUserExist(user: User): Observable<List<User>> =
+        Observable.fromCallable {
+            mAppDatabase.userDao()
+                .loadUser(userName = user.username!!)
+        }
 
-  override suspend fun loadTaskAll(): Observable<List<Task>> = Observable.fromCallable {
-    mAppDatabase.taskDao()
-        .loadAll()
+    override suspend fun insertUser(user: List<User>): Observable<Boolean> {
+        mAppDatabase.userDao()
+            .insertAll(user)
+        return Observable.just(user.count() > 0)
+    }
+
+    override suspend fun loadTaskAll(): Observable<List<Task>> = Observable.fromCallable {
+        mAppDatabase.taskDao()
+            .loadAll()
   }
 
   override suspend fun insertTaskList(task: List<Task>): Observable<Boolean> {

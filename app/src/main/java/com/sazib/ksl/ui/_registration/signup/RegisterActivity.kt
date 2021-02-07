@@ -14,13 +14,8 @@ import com.sazib.ksl.data.db._user.User
 import com.sazib.ksl.ui._registration.signin.SigninActivity
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.base.ViewModelProviderFactory
-import com.sazib.ksl.utils.Status.ERROR
-import com.sazib.ksl.utils.Status.LOADING
-import com.sazib.ksl.utils.Status.SUCCESS
-import kotlinx.android.synthetic.main.activity_register.btnSubmit
-import kotlinx.android.synthetic.main.activity_register.inputEmail
-import kotlinx.android.synthetic.main.activity_register.inputName
-import kotlinx.android.synthetic.main.activity_register.inputPassword
+import com.sazib.ksl.utils.Status.*
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -96,18 +91,18 @@ class RegisterActivity : BaseActivity(), OnClickListener, CoroutineScope {
     }
 
     when (isValidationOk) {
-      true -> {
-        val userData = User()
-        userData.createdAt = System.currentTimeMillis()
-        userData.updatedAt = System.currentTimeMillis()
-        userData.id = null
-        userData.username = inputName.text.toString()
-        userData.passwordhash = inputPassword.text.toString()
-        userData.email = inputEmail.text.toString()
+        true -> {
+            val userData = User()
+            userData.createdAt = System.currentTimeMillis()
+            userData.updatedAt = System.currentTimeMillis()
+            userData.id = null
+            userData.username = inputName.text.toString()
+            userData.passwordhash = inputPassword.text.toString()
+            userData.email = inputEmail.text.toString()
 
-        launch { vm.updateItemData(userData) }
-      }
-      else -> showAlert("KSL", message)
+            launch { vm.updateItemData(userData) }
+        }
+        else -> showAlert("Test Fail", message)
     }
   }
 
