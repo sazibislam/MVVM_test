@@ -6,8 +6,8 @@ import android.view.View.OnClickListener
 import androidx.lifecycle.ViewModelProvider
 import com.sazib.ksl.R
 import com.sazib.ksl.data.AppDataManager
+import com.sazib.ksl.ui._registration.signup.RegisterActivity
 import com.sazib.ksl.ui.base.BaseActivity
-import com.sazib.ksl.ui.register.RegisterActivity
 import com.sazib.ksl.ui.view_customer.ViewCustomerActivity
 import com.sazib.ksl.utils.DataUtils.getPostalDetails
 import kotlinx.android.synthetic.main.activity_main.btnRegister
@@ -21,6 +21,7 @@ import kotlin.coroutines.CoroutineContext
 class MainActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
   private lateinit var vm: MainActivityVM
+  private val TAG = "main_activity"
 
   private var job: Job = Job()
   override val coroutineContext: CoroutineContext
@@ -51,8 +52,13 @@ class MainActivity : BaseActivity(), OnClickListener, CoroutineScope {
   override fun onClick(v: View?) {
 
     when (v?.id) {
-      R.id.btnRegister -> startActivity(RegisterActivity.getStartIntent(this@MainActivity))
+      R.id.btnRegister -> startActivity(RegisterActivity.getStartIntent(this@MainActivity, TAG))
       R.id.btnViewCustomer -> startActivity(ViewCustomerActivity.getStartIntent(this@MainActivity))
     }
+  }
+
+  override fun onDestroy() {
+    job.cancel()
+    super.onDestroy()
   }
 }

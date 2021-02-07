@@ -20,7 +20,7 @@
     </activity>
 
         <activity
-            android:name="com.sazib.ksl.ui.register.RegisterActivity"
+            android:name="com.sazib.ksl.ui._registration.signup.RegisterActivity"
             android:exported="false" />
 
         <activity

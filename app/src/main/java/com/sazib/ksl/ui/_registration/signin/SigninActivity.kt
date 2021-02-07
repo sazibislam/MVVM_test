@@ -13,6 +13,7 @@ import com.sazib.ksl.data.AppDataManager
 import com.sazib.ksl.data.api.ApiService
 import com.sazib.ksl.data.service.App
 import com.sazib.ksl.ui._registration.forget_pass.ForgetPassActivity
+import com.sazib.ksl.ui._registration.signup.RegisterActivity
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.ui.base.ViewModelProviderFactory
 import com.sazib.ksl.ui.todo.edit_task.EditTaskActivity
@@ -91,7 +92,7 @@ class SigninActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
     when (view?.id) {
       R.id.tvLogin -> validation()
-      R.id.tvSignUp -> startActivity(EditTaskActivity.getStartIntent(this@SigninActivity, TAG))
+      R.id.tvSignUp -> startActivity(RegisterActivity.getStartIntent(this@SigninActivity, TAG))
       R.id.tvForgetPass -> startActivity(
           ForgetPassActivity.getStartIntent(this@SigninActivity, TAG)
       )

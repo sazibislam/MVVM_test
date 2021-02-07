@@ -137,4 +137,5 @@
   <string name="tasks_created">tasks created</string>
   <string name="tasks_left">tasks left</string>
   <string name="enter_username">Enter username</string>
+  <string name="email">email</string>
 </resources>
