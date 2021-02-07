@@ -5,29 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-import androidx.core.util.Supplier
-import androidx.lifecycle.ViewModelProvider
 import com.sazib.ksl.R
-import com.sazib.ksl.data.AppDataManager
 import com.sazib.ksl.ui._registration.signin.SigninActivity
 import com.sazib.ksl.ui.base.BaseActivity
-import com.sazib.ksl.ui.base.ViewModelProviderFactory
-import com.sazib.ksl.utils.DataUtils.getDummyUser
 import kotlinx.android.synthetic.main.activity_walkthrough.tvGetStarted
 import kotlinx.android.synthetic.main.activity_walkthrough.tvLogin
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
-class WalkThroughActivity : BaseActivity(), OnClickListener, CoroutineScope {
-
-  private lateinit var vm: WalkThroughVM
-
-  private var job: Job = Job()
-  override val coroutineContext: CoroutineContext
-    get() = Dispatchers.Main + job
+class WalkThroughActivity : BaseActivity(), OnClickListener {
 
   companion object {
     private const val TAG = "walkthrough_activity"
@@ -47,19 +31,6 @@ class WalkThroughActivity : BaseActivity(), OnClickListener, CoroutineScope {
   }
 
   private fun initView() {
-
-    val supplier =
-      Supplier { WalkThroughVM(AppDataManager.getInstance().appDbHelper) }
-    val factory = ViewModelProviderFactory(WalkThroughVM::class.java, supplier)
-    vm = ViewModelProvider(this, factory).get<WalkThroughVM>(WalkThroughVM::class.java)
-
-    /*
-    * inserting some dummy user in local db
-    *  */
-    launch {
-      vm.insertDummyUser(getDummyUser())
-    }
-
     tvLogin.setOnClickListener(this@WalkThroughActivity)
     tvGetStarted.setOnClickListener(this@WalkThroughActivity)
   }
@@ -71,10 +42,5 @@ class WalkThroughActivity : BaseActivity(), OnClickListener, CoroutineScope {
           SigninActivity.getStartIntent(this@WalkThroughActivity, TAG)
       )
     }
-  }
-
-  override fun onDestroy() {
-    super.onDestroy()
-    job.cancel()
   }
 }

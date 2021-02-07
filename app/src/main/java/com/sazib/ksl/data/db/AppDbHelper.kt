@@ -7,14 +7,13 @@ import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.db.user_details.UserDetails
 import io.reactivex.Observable
 
-//repository class
 open class AppDbHelper(context: Context) : DbHelper {
 
   private val mAppDatabase: AppDatabase = AppDatabase.getInstance(context)
 
   override suspend fun checkUser(user: User): Observable<List<User>> = Observable.fromCallable {
     mAppDatabase.userDao()
-        .loadUser(userName = user.username!!)
+        .loadUser(userName = user.username!!, pass = user.passwordhash!!)
   }
 
   override suspend fun insertUser(user: List<User>): Observable<Boolean> {
