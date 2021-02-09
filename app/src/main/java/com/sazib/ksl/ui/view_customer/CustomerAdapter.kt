@@ -1,15 +1,13 @@
 package com.sazib.ksl.ui.view_customer
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sazib.ksl.R
-import com.sazib.ksl.data.db.user_details.UserDetails
+import com.sazib.ksl.data.db.post_code.PostalDetails
+import com.sazib.ksl.databinding.RowViewUserBinding
 import com.sazib.ksl.ui.base.BaseViewHolder
-import kotlinx.android.synthetic.main.row_view_user.view.*
 
-class CustomerAdapter(private val data: MutableList<UserDetails> = ArrayList()) : RecyclerView.Adapter<BaseViewHolder>() {
+class CustomerAdapter(private val data: MutableList<PostalDetails> = ArrayList()) : RecyclerView.Adapter<BaseViewHolder>() {
 
   override fun getItemCount() = data.size
 
@@ -22,28 +20,31 @@ class CustomerAdapter(private val data: MutableList<UserDetails> = ArrayList()) 
     parent: ViewGroup,
     viewType: Int
   ) = ViewHolder(
-      LayoutInflater.from(parent.context)
-          .inflate(R.layout.row_view_user, parent, false)
+      RowViewUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
   )
 
-  internal fun addDataToList(data: List<UserDetails>) {
+  internal fun addDataToList(data: List<PostalDetails>) {
     this.data.clear()
     this.data.addAll(data)
     notifyDataSetChanged()
   }
 
-  inner class ViewHolder(view: View) : BaseViewHolder(view) {
+  inner class ViewHolder(private val binding: RowViewUserBinding) : BaseViewHolder(binding.root) {
 
     override fun clear() {
-      itemView.postName.text = ""
-      itemView.postPhone.text = ""
+      binding.apply {
+        postName.text = ""
+        postPhone.text = ""
+      }
     }
 
     override fun onBind(position: Int) {
 
       val model = data[position]
-      itemView.postName.text = model.name
-      itemView.postPhone.text = model.phone
+      binding.apply {
+        postName.text = model.district
+        postPhone.text = model.postOffice
+      }
     }
   }
 }

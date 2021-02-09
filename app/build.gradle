@@ -39,11 +39,9 @@ android {
 //    jvmTarget = '1.8'
 //  }
 
-  dataBinding {
-    enabled = true
-  }
   buildFeatures {
     viewBinding true
+    dataBinding true
   }
 //  androidExtensions {
 //    experimental = true
@@ -53,7 +51,9 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.21"
-  testImplementation 'junit:junit:4.13.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    testImplementation 'junit:junit:4.13.1'
   androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 
   // dependencies for local unit tests

@@ -10,14 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sazib.ksl.R
 import com.sazib.ksl.data.AppDataManager
+import com.sazib.ksl.databinding.ActivityViewCustomerBinding
 import com.sazib.ksl.ui.base.BaseActivity
 import com.sazib.ksl.utils.Status.ERROR
 import com.sazib.ksl.utils.Status.LOADING
 import com.sazib.ksl.utils.Status.SUCCESS
 import kotlinx.android.synthetic.main.activity_view_customer.noItems
-import kotlinx.android.synthetic.main.activity_view_customer.rvUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -27,8 +26,9 @@ import kotlin.coroutines.CoroutineContext
 class ViewCustomerActivity : BaseActivity(), CoroutineScope {
 
   private lateinit var vm: ViewCustomerActivityVM
-  lateinit var layoutManager: LinearLayoutManager
-  lateinit var customerAdapter: CustomerAdapter
+  private lateinit var layoutManager: LinearLayoutManager
+  private lateinit var customerAdapter: CustomerAdapter
+  private lateinit var binding: ActivityViewCustomerBinding
 
   private var job: Job = Job()
   override val coroutineContext: CoroutineContext
@@ -41,7 +41,9 @@ class ViewCustomerActivity : BaseActivity(), CoroutineScope {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_view_customer)
+
+    binding = ActivityViewCustomerBinding.inflate(layoutInflater)
+    setContentView(binding.root)
 
     initView()
   }
@@ -51,7 +53,7 @@ class ViewCustomerActivity : BaseActivity(), CoroutineScope {
     customerAdapter = CustomerAdapter()
     layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
 
-    rvUser.apply {
+    binding.rvUser.apply {
       layoutManager = this@ViewCustomerActivity.layoutManager
       itemAnimator = DefaultItemAnimator()
       adapter = this@ViewCustomerActivity.customerAdapter
@@ -83,8 +85,11 @@ class ViewCustomerActivity : BaseActivity(), CoroutineScope {
                 })
           }
 
-    launch {
-      vm.fetchData()
-    }
+    launch { vm.fetchData() }
+  }
+
+  override fun onDestroy() {
+    job.cancel()
+    super.onDestroy()
   }
 }
