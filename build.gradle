@@ -30,4 +30,10 @@ ext {
   coroutines = '1.4.1'
   room= "2.2.6"
   dagger = '2.24'
+
+  //Test dependencies
+  junit = '4.13-beta-3'
+  espresso = '3.3.0-alpha01'
+  mockito = '2.19.0'
+  ktx = '1.2.0-alpha04'
 }
