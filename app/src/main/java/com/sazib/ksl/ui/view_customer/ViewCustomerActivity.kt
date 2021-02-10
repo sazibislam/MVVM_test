@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sazib.ksl.data.AppDataManager
 import com.sazib.ksl.databinding.ActivityViewCustomerBinding
 import com.sazib.ksl.ui.base.BaseActivity
-import com.sazib.ksl.utils.Status.ERROR
-import com.sazib.ksl.utils.Status.LOADING
-import com.sazib.ksl.utils.Status.SUCCESS
-import kotlinx.android.synthetic.main.activity_view_customer.noItems
+import com.sazib.ksl.utils.Status.*
+import kotlinx.android.synthetic.main.activity_view_customer.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -35,7 +33,7 @@ class ViewCustomerActivity : BaseActivity(), CoroutineScope {
     get() = Dispatchers.Main + job
 
   companion object {
-    const val TAG: String = "view_customer_activity"
+    const val TAG = "view_customer_activity"
     fun getStartIntent(context: Context): Intent = Intent(context, ViewCustomerActivity::class.java)
   }
 
