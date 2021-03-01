@@ -29,11 +29,11 @@ ext {
   cropper = '2.8.0'
   coroutines = '1.4.1'
   room= "2.2.6"
-  dagger = '2.24'
+  dagger = '2.25.4'
 
   //Test dependencies
   junit = '4.13-beta-3'
-  espresso = '3.3.0-alpha01'
-  mockito = '2.19.0'
+  espresso = '3.4.0-alpha04'
+  mockito = '3.3.3'
   ktx = '1.2.0-alpha04'
 }
