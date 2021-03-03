@@ -73,12 +73,8 @@ class ViewCustomerActivity : BaseActivity(), CoroutineScope {
                         noItems.visibility = View.GONE
                         customerAdapter.addDataToList(data_)
                       }
-                    LOADING -> {
-                      Log.d("data_category", "Progress")
-                    }
-                    ERROR -> {
-                      Log.d("data_category", "error")
-                    }
+                    LOADING -> Log.d("data_category", "Progress")
+                    ERROR -> Log.d("data_category", "error")
                   }
                 })
           }
