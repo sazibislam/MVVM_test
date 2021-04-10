@@ -2,6 +2,7 @@ package com.sazib.ksl.data.db
 
 import com.sazib.ksl.data.db._task.Task
 import com.sazib.ksl.data.db._user.User
+import com.sazib.ksl.data.db.loan.Loan
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.db.user_details.UserDetails
 import io.reactivex.Observable
@@ -21,4 +22,8 @@ interface DbHelper {
 
   suspend fun insertPostalDetails(postalDetails: List<PostalDetails>): Observable<Boolean>
   suspend fun loadPostalDetailsAll(): Observable<List<PostalDetails>>
+
+  suspend fun loadLoanAll(): Observable<List<Loan>>
+  suspend fun insertLoanList(loan: List<Loan>): Observable<Boolean>
+  suspend fun deleteLoanList(loan: List<Loan>): Observable<List<Loan>>
 }

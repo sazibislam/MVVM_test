@@ -15,6 +15,7 @@ import com.sazib.ksl.data.db._userTaskView.UserTaskView
 import com.sazib.ksl.data.db._userTaskView.UserTaskViewDao
 import com.sazib.ksl.data.db._user_old.UserOld
 import com.sazib.ksl.data.db._user_old.UserOldDao
+import com.sazib.ksl.data.db.loan.LoanDao
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.db.post_code.PostalDetailsDao
 import com.sazib.ksl.data.db.user_details.UserDetails
@@ -56,6 +57,7 @@ abstract class AppDatabase : RoomDatabase() {
   abstract fun userDao(): UserDao
   abstract fun userDetailsDao(): UserDetailsDao
   abstract fun postalDetailsDao(): PostalDetailsDao
+  abstract fun loanDao(): LoanDao
 
 //  val database =
 //    Room.databaseBuilder(applicationContext, AppDatabase::class.java, AppConstants.DB_NAME)

@@ -138,4 +138,7 @@
   <string name="tasks_left">tasks left</string>
   <string name="enter_username">Enter username</string>
   <string name="email">email</string>
+  <string name="add_amount">Add Amount</string>
+  <string name="number_of_installment">Number Of Installment</string>
+  <string name="rate_of_interest">Rate Of Interest</string>
 </resources>
