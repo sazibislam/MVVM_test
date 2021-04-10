@@ -43,9 +43,9 @@ class LoanAdapter(private val data: MutableList<Loan> = ArrayList()) : RecyclerV
 
       val model = data[position]
       binding.apply {
-        tvInstallment.text = ""
-        tvInterest.text = ""
-        tvAmount.text = ""
+        tvInstallment.text = "${model.installment}"
+        tvInterest.text = "${model.rateofinterest}"
+        tvAmount.text = "${model.amount}"
       }
     }
   }
