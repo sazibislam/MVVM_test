@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edit_task"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_32"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/hey_tamara"
+        android:textAppearance="@style/TextStyle"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_24"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivEditPlus"
+        app:layout_constraintEnd_toStartOf="@+id/ivEditPlus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl_start"
+        tools:text="@string/hey_tamara" />
+
+    <TextView
+        android:id="@+id/tvTask"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_32"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/today_you_have_12_tasks"
+        android:textAppearance="@style/TextStyle"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome"
+        tools:text="@string/today_you_have_12_tasks" />
+
+    <TextView
+        android:id="@+id/tvTaskCreated"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="16"
+        android:textAppearance="@style/TextStyle"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/tvTask" />
+
+    <TextView
+        android:id="@+id/tvTaskCreatedTxt"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/tasks_created"
+        android:textAppearance="@style/TextStyle"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/tvTaskCreated" />
+
+    <TextView
+        android:id="@+id/tvTaskLeft"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="12"
+        android:textAppearance="@style/TextStyle"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/gl_middle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTask" />
+
+    <TextView
+        android:id="@+id/tvTaskLeftTxt"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/tasks_left"
+        android:textAppearance="@style/TextStyle"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/gl_middle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTaskLeft" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/border_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/tvTaskCreatedTxt" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivEditPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl_start"
+        app:srcCompat="@drawable/ic_add_list" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.60"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvType"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:itemCount="2"
+        tools:listitem="@layout/list_item_task" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvType"
+        tools:itemCount="2"
+        tools:listitem="@layout/list_item_task_list" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

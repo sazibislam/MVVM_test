@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/spinnerDate"
+        style="@style/SpinnerTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:drawableEnd="@drawable/ic_down_arrow"
+        android:gravity="center_vertical"
+        android:hint="Today, 12:06 -13:00"
+        android:textColorHint="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseDate"
+        tools:entries="@array/array_test"
+        tools:listitem="@layout/spinner_selected_item" />
+
+    <TextView
+        android:id="@+id/tvChooseDate"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="@string/choose_date"
+        android:textAppearance="@style/TextStyle"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/etAddTask" />
+
+    <TextView
+        android:id="@+id/tvChooseTask"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_24"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="@string/choose_task_type"
+        android:textAppearance="@style/TextStyle"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerDate" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etAddTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_32"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:background="@android:color/transparent"
+        android:hint="@string/add_task"
+        android:padding="@dimen/dp_8"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_todo" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnAddTask"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="@dimen/dp_32"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_end">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtSubmit"
+            style="@style/buttonTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/add_task"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTaskType"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_end"
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseTask"
+        tools:itemCount="2"
+        tools:listitem="@layout/button" />
+
+    <include
+        android:id="@+id/layout_todo"
+        layout="@layout/toolbar_todo_list"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
