@@ -84,7 +84,12 @@ class CalculatorActivity : BaseActivity(), OnClickListener, CoroutineScope {
     vm.getTaskDataResponse()
         .observe(this, Observer {
           when (it.status) {
-            SUCCESS -> showMsg("success")
+            SUCCESS -> {
+              showMsg("success")
+              it.data?.let { data_ ->
+                loanAdapter.addDataToList(data_)
+              }
+            }
             LOADING -> {
             }
             ERROR -> {

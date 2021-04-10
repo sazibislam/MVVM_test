@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.sazib.ksl.data.api.ApiService
 import com.sazib.ksl.data.db.DbHelper
-import com.sazib.ksl.data.db._task.Task
 import com.sazib.ksl.data.db.loan.Loan
 import com.sazib.ksl.ui.base.BaseViewModel
 import com.sazib.ksl.utils.Resource
@@ -16,7 +15,7 @@ class CalculatorActivityVM(
   private val dbHelper: DbHelper
 ) : BaseViewModel() {
 
-  private val loanList = MutableLiveData<Resource<List<Task>>>()
+  private val loanList = MutableLiveData<Resource<List<Loan>>>()
 
   suspend fun saveLoanData(
     amount: String,
@@ -59,5 +58,5 @@ class CalculatorActivityVM(
     )
   }
 
-  fun getTaskDataResponse(): MutableLiveData<Resource<List<Task>>> = loanList
+  fun getTaskDataResponse(): MutableLiveData<Resource<List<Loan>>> = loanList
 }
