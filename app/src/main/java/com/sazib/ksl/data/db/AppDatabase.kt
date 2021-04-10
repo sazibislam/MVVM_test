@@ -15,6 +15,7 @@ import com.sazib.ksl.data.db._userTaskView.UserTaskView
 import com.sazib.ksl.data.db._userTaskView.UserTaskViewDao
 import com.sazib.ksl.data.db._user_old.UserOld
 import com.sazib.ksl.data.db._user_old.UserOldDao
+import com.sazib.ksl.data.db.loan.Loan
 import com.sazib.ksl.data.db.loan.LoanDao
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.db.post_code.PostalDetailsDao
@@ -23,7 +24,8 @@ import com.sazib.ksl.data.db.user_details.UserDetailsDao
 import com.sazib.ksl.utils.AppConstants
 
 @Database(
-    entities = [(UserDetails::class), (PostalDetails::class), (User::class), (UserOld::class), (Task::class), (SqSequence::class), (UserTaskView::class)],
+    entities = [(UserDetails::class), (PostalDetails::class), (User::class), (UserOld::class),
+      (Task::class), (SqSequence::class), (UserTaskView::class), (Loan::class)],
     version = BuildConfig.VERSION_CODE,
     exportSchema = false
 )

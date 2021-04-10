@@ -44,5 +44,20 @@ class CalculatorActivityVM(
     )
   }
 
+  suspend fun getData() {
+
+    loanList.postValue(Resource.loading(null))
+
+    mCompositeDisposable.add(
+        dbHelper.loadLoanAll()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ _ ->
+              loanList.postValue(Resource.success(null))
+              Log.d("user data", "checking")
+            }, { loanList.postValue(Resource.error("Something Went Wrong", null, null)) })
+    )
+  }
+
   fun getTaskDataResponse(): MutableLiveData<Resource<List<Task>>> = loanList
 }
