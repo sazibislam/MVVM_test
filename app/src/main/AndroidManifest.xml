@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.sazib.ksl.ui.loan_calculator.CalculatorActivity">
+        <activity android:name="com.sazib.ksl.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,7 @@
             android:exported="false" />
 
         <activity
-            android:name="com.sazib.ksl.ui.main.MainActivity"
+            android:name="com.sazib.ksl.ui.loan_calculator.CalculatorActivity"
             android:exported="true" />
 
         <activity
