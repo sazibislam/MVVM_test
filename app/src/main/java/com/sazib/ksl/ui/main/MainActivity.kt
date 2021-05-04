@@ -45,10 +45,52 @@ class MainActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
     launch { vm.updateItemData(getPostalDetails()) }
 
-    val A = arrayListOf(1, 3, 8, 6, 5, 9)
-//    selectionSort(A)
-//    bubbleSort(A)
-    insertionSort(A)
+    val a = arrayListOf(1, 3, 8, 6, 5, 9)
+//    selectionSort(a)
+//    bubbleSort(a)
+//    insertionSort(a)
+    Log.d("mergeSort", mergeSort(a).toString())
+  }
+
+  private fun mergeSort(a: List<Int>): List<Int> {
+
+    if (a.size <= 1) return a
+
+    val middle = a.size / 2
+    val left = a.subList(0, middle)
+    val right = a.subList(middle, a.size)
+
+    return merge(mergeSort(left), mergeSort(right))
+  }
+
+  private fun merge(
+    left: List<Int>,
+    right: List<Int>
+  ): List<Int> {
+    var indexLeft = 0
+    var indexRight = 0
+    val newList: MutableList<Int> = mutableListOf()
+
+    while (indexLeft < left.count() && indexRight < right.count()) {
+      if (left[indexLeft] <= right[indexRight]) {
+        newList.add(left[indexLeft])
+        indexLeft++
+      } else {
+        newList.add(right[indexRight])
+        indexRight++
+      }
+    }
+
+    while (indexLeft < left.size) {
+      newList.add(left[indexLeft])
+      indexLeft++
+    }
+
+    while (indexRight < right.size) {
+      newList.add(right[indexRight])
+      indexRight++
+    }
+    return newList
   }
 
   private fun insertionSort(A: ArrayList<Int>) {
