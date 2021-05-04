@@ -46,7 +46,45 @@ class MainActivity : BaseActivity(), OnClickListener, CoroutineScope {
     launch { vm.updateItemData(getPostalDetails()) }
 
     val A = arrayListOf(1, 3, 8, 6, 5, 9)
-    selectionSort(A)
+//    selectionSort(A)
+//    bubbleSort(A)
+    insertionSort(A)
+  }
+
+  private fun insertionSort(A: ArrayList<Int>) {
+
+    if (A.isEmpty() || A.size < 2) return
+
+    for (count in 1 until A.count()) {
+      val item = A[count]
+      var i = count
+      while (i > 0 && item < A[i - 1]) {
+        A[i] = A[i - 1]
+        i -= 1
+      }
+      A[i] = item
+    }
+    Log.d("insertionSort", A.toString())
+  }
+
+  private fun bubbleSort(A: ArrayList<Int>) {
+
+    var temp: Int?
+    val size = A.size
+
+    var swap = true
+    while (swap) {
+      swap = false
+      for (i in 0 until size - 1) {
+        if (A[i] > A[i + 1]) {
+          temp = A[i]
+          A[i] = A[i + 1]
+          A[i + 1] = temp
+          swap = true
+        }
+      }
+    }
+    Log.d("bubbleSort", A.toString())
   }
 
   private fun selectionSort(A: ArrayList<Int>) {
