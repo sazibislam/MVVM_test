@@ -1,5 +1,5 @@
 # MVVM_test
-#MVVM £KOTLIN #ROOM # COROUTINE #LIVE DATA
+>MVVM >KOTLIN >ROOM >COROUTINE >LIVE DATA >FLOW >Datastore
 
 here are some screen shoots: _release
 
