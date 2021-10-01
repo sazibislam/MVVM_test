@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eschool.iml" filepath="$PROJECT_DIR$/.idea/modules/eschool.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/eschool.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/eschool.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/setschedule.iml" filepath="$PROJECT_DIR$/.idea/modules/setschedule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/setschedule.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/setschedule.app.iml" />
     </modules>
   </component>
 </project>
