@@ -12,7 +12,8 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
 
-    <activity android:name="com.sazib.ksl.ui.loan_calculator.CalculatorActivity">
+    <activity android:name="com.sazib.ksl.ui.loan_calculator.CalculatorActivity"
+        android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -68,10 +69,6 @@
         android:name="preloaded_fonts"
         android:resource="@array/preloaded_fonts" />
 
-    <meta-data
-        android:name="preloaded_fonts"
-        android:resource="@array/preloaded_fonts" />
-
   </application>
 
   <dist:module dist:instant="true" />
@@ -81,7 +78,6 @@
       android:required="true" />
 
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
   <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
