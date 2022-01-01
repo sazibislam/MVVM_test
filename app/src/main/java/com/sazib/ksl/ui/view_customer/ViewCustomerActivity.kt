@@ -59,10 +59,9 @@ class ViewCustomerActivity : BaseActivity(), CoroutineScope {
 
     vm =
       ViewModelProvider(
-          this@ViewCustomerActivity,
-          ViewCustomerActivityVMF(AppDataManager.getInstance().appDbHelper)
-      )
-          .get(ViewCustomerActivityVM::class.java)
+        this@ViewCustomerActivity,
+        ViewCustomerActivityVMF(AppDataManager.getInstance().appDbHelper)
+      )[ViewCustomerActivityVM::class.java]
           .also { vm_ ->
 
             vm_.getUserData()

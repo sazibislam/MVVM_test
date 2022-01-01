@@ -2,14 +2,14 @@ package com.sazib.ksl.ui._registration.signup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sazib.ksl.data.db.DbHelper
+import com.sazib.ksl.data.db.DataHelper
 import com.sazib.ksl.data.db._user.User
 import com.sazib.ksl.ui.base.BaseViewModel
 import com.sazib.ksl.utils.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class RegisterActivityVM(private val dbHelper: DbHelper) : BaseViewModel() {
+class RegisterActivityVM(private val dataHelper: DataHelper) : BaseViewModel() {
 
   private val userListData = MutableLiveData<Resource<List<User>>>()
 
@@ -20,7 +20,7 @@ class RegisterActivityVM(private val dbHelper: DbHelper) : BaseViewModel() {
 
     userListData.postValue(Resource.loading(null))
     mCompositeDisposable.add(
-        dbHelper.insertUser(listData)
+        dataHelper.insertUser(listData)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ _ ->

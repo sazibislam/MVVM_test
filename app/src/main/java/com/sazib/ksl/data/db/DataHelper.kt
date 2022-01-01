@@ -7,11 +7,11 @@ import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.db.user_details.UserDetails
 import io.reactivex.Observable
 
-interface DbHelper {
+interface DataHelper {
 
   suspend fun checkUser(user: User): Observable<List<User>>
-    suspend fun checkUserExist(user: User): Observable<List<User>>
-    suspend fun insertUser(user: List<User>): Observable<Boolean>
+  suspend fun checkUserExist(user: User): Observable<List<User>>
+  suspend fun insertUser(user: List<User>): Observable<Boolean>
 
   suspend fun loadTaskAll(): Observable<List<Task>>
   suspend fun insertTaskList(task: List<Task>): Observable<Boolean>

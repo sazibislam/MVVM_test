@@ -2,7 +2,7 @@ package com.sazib.ksl.ui._registration.forget_pass
 
 import androidx.lifecycle.MutableLiveData
 import com.sazib.ksl.data.api.ApiService
-import com.sazib.ksl.data.db.DbHelper
+import com.sazib.ksl.data.db.DataHelper
 import com.sazib.ksl.data.db._user.User
 import com.sazib.ksl.ui.base.BaseViewModel
 import com.sazib.ksl.utils.Resource
@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 
 class ForgetPassActivityVM(
   private val apiHelper: ApiService,
-  private val dbHelper: DbHelper
+  private val dataHelper: DataHelper
 ) : BaseViewModel() {
 
   private val user = MutableLiveData<Resource<List<User>>>()
@@ -23,7 +23,7 @@ class ForgetPassActivityVM(
     val data = User(null, username, "", "", false)
 
     mCompositeDisposable.add(
-        dbHelper.checkUserExist(data)
+        dataHelper.checkUserExist(data)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ userData_ ->

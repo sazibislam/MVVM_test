@@ -8,7 +8,10 @@ import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.data.db.user_details.UserDetails
 import io.reactivex.Observable
 
-open class AppDbHelper(context: Context) : DbHelper {
+/**
+* It is a repository class. This repo is used for local cache data purpose.
+* */
+open class AppDataHelper(context: Context) : DataHelper {
 
   private val mAppDatabase: AppDatabase = AppDatabase.getInstance(context)
 

@@ -66,8 +66,7 @@ class ResetPassActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
     App.appComponent.inject(this@ResetPassActivity)
 
-    val supplier =
-      Supplier { ResetPassActivityVM(apiHelper, AppDataManager.getInstance().appDbHelper) }
+    val supplier = Supplier { ResetPassActivityVM(apiHelper, AppDataManager.getInstance().appDbHelper) }
     val factory = ViewModelProviderFactory(ResetPassActivityVM::class.java, supplier)
     vm = ViewModelProvider(this, factory).get<ResetPassActivityVM>(ResetPassActivityVM::class.java)
 

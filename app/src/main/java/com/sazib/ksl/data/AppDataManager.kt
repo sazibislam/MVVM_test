@@ -1,11 +1,11 @@
 package com.sazib.ksl.data
 
-import com.sazib.ksl.data.db.AppDbHelper
+import com.sazib.ksl.data.db.AppDataHelper
 import com.sazib.ksl.data.service.App
 
 class AppDataManager  {
 
-  val appDbHelper: AppDbHelper = AppDbHelper(App.getInstance())
+  val appDbHelper: AppDataHelper = AppDataHelper(App.getInstance())
 
   companion object {
     private const val TAG = "AppDataManager"

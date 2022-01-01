@@ -2,7 +2,7 @@ package com.sazib.ksl.ui._registration.reset_pass
 
 import androidx.lifecycle.MutableLiveData
 import com.sazib.ksl.data.api.ApiService
-import com.sazib.ksl.data.db.DbHelper
+import com.sazib.ksl.data.db.DataHelper
 import com.sazib.ksl.data.db._user.User
 import com.sazib.ksl.ui.base.BaseViewModel
 import com.sazib.ksl.utils.Resource
@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 
 class ResetPassActivityVM(
   private val apiHelper: ApiService,
-  private val dbHelper: DbHelper
+  private val dataHelper: DataHelper
 ) : BaseViewModel() {
 
   private val data = MutableLiveData<Resource<List<User>>>()
@@ -21,7 +21,7 @@ class ResetPassActivityVM(
     data.postValue(Resource.loading(null))
 
     mCompositeDisposable.add(
-        dbHelper.checkUser(userData)
+        dataHelper.checkUser(userData)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ _ ->

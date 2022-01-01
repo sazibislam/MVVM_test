@@ -2,14 +2,14 @@ package com.sazib.ksl.ui.view_customer
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sazib.ksl.data.db.DbHelper
+import com.sazib.ksl.data.db.DataHelper
 import com.sazib.ksl.data.db.post_code.PostalDetails
 import com.sazib.ksl.ui.base.BaseViewModel
 import com.sazib.ksl.utils.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class ViewCustomerActivityVM(private val dbHelper: DbHelper) : BaseViewModel() {
+class ViewCustomerActivityVM(private val dataHelper: DataHelper) : BaseViewModel() {
 
   private val userListData = MutableLiveData<Resource<List<PostalDetails>>>()
 
@@ -19,7 +19,7 @@ class ViewCustomerActivityVM(private val dbHelper: DbHelper) : BaseViewModel() {
   suspend fun fetchData() {
 
     mCompositeDisposable.add(
-        dbHelper.loadPostalDetailsAll()
+        dataHelper.loadPostalDetailsAll()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ userListData_ ->
