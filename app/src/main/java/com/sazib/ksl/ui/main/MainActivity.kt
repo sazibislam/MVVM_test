@@ -40,9 +40,8 @@ class MainActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
     vm =
       ViewModelProvider(
-          this@MainActivity, MainActivityVMF(AppDataManager.getInstance().appDbHelper)
-      )
-          .get(MainActivityVM::class.java)
+        this@MainActivity, MainActivityVMF(AppDataManager.getInstance().appDbHelper)
+      )[MainActivityVM::class.java]
 
     launch {
       vm.updateItemData(getPostalDetails())

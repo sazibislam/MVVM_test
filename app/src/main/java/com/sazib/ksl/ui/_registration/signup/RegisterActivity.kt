@@ -54,20 +54,20 @@ class RegisterActivity : BaseActivity(), OnClickListener, CoroutineScope {
     vm = ViewModelProvider(this, factory).get<RegisterActivityVM>(RegisterActivityVM::class.java)
 
     vm.getUserData()
-        .observe(this, Observer {
-          when (it.status) {
-            SUCCESS -> {
-              //show success dialog
-              startActivity(SigninActivity.getStartIntent(this@RegisterActivity, TAG))
-              finishIt()
-            }
-            LOADING -> {
-            }
-            ERROR -> {
-              //show error dialog
-            }
+      .observe(this, Observer {
+        when (it.status) {
+          SUCCESS -> {
+            //show success dialog
+            startActivity(SigninActivity.getStartIntent(this@RegisterActivity, TAG))
+            finishIt()
           }
-        })
+          LOADING -> {
+          }
+          ERROR -> {
+            //show error dialog
+          }
+        }
+      })
   }
 
   private fun validation() {
@@ -91,25 +91,32 @@ class RegisterActivity : BaseActivity(), OnClickListener, CoroutineScope {
     }
 
     when (isValidationOk) {
-        true -> {
-            val userData = User()
-            userData.createdAt = System.currentTimeMillis()
-            userData.updatedAt = System.currentTimeMillis()
-            userData.id = null
-            userData.username = inputName.text.toString()
-            userData.passwordhash = inputPassword.text.toString()
-            userData.email = inputEmail.text.toString()
+      true -> {
+        val userData = User()
+        userData.createdAt = System.currentTimeMillis()
+        userData.updatedAt = System.currentTimeMillis()
+        userData.id = null
+        userData.username = inputName.text.toString()
+        userData.passwordhash = inputPassword.text.toString()
+        userData.email = inputEmail.text.toString()
 
-            launch { vm.updateItemData(userData) }
-        }
-        else -> showAlert("Test Fail", message)
+        launch { vm.updateItemData(userData) }
+      }
+      else -> showAlert("Test Fail", message)
     }
   }
 
   override fun onClick(v: View?) {
 
     when (v?.id) {
-      R.id.btnSubmit -> validation()
+      R.id.btnSubmit -> {
+        // validation()
+        val intent = Intent()
+        intent.putExtra("value", "test")
+
+        setResult(78, intent)
+        super.onBackPressed()
+      }
     }
   }
 }

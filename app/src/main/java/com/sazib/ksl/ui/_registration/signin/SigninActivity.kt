@@ -1,10 +1,13 @@
 package com.sazib.ksl.ui._registration.signin
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.core.util.Supplier
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -30,10 +33,18 @@ class SigninActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
   private lateinit var vm: SigninActivityVM
   @Inject lateinit var apiHelper: ApiService
+  // @Inject lateinit var dataManager: AppDataManager
 
   private var job: Job = Job()
   override val coroutineContext: CoroutineContext
     get() = Dispatchers.Main + job
+
+  private val resultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
+    if (result.resultCode == 78) {
+      val data: Intent? = result.data
+      Log.d(TAG, "${data?.getStringExtra("value")}")
+    }
+  }
 
   companion object {
     private const val TAG = "signin_activity"
@@ -67,27 +78,31 @@ class SigninActivity : BaseActivity(), OnClickListener, CoroutineScope {
     tvForgetPass.setOnClickListener(this@SigninActivity)
 
     vm.getSigninResponseData()
-        .observe(this, Observer {
-          when (it.status) {
-            SUCCESS -> {
-              showMsg("Success")
-              startActivity(EditTaskActivity.getStartIntent(this@SigninActivity, TAG))
-              finishIt()
-            }
-            LOADING -> {
-            }
-            ERROR -> it.message?.let { data_ -> showMsg(data_) }
+      .observe(this, Observer {
+        when (it.status) {
+          SUCCESS -> {
+            showMsg("Success")
+            startActivity(EditTaskActivity.getStartIntent(this@SigninActivity, TAG))
+            finishIt()
           }
-        })
+          LOADING -> {
+          }
+          ERROR -> it.message?.let { data_ -> showMsg(data_) }
+        }
+      })
   }
 
   override fun onClick(view: View?) {
 
     when (view?.id) {
-      R.id.tvLogin -> validation()
+      R.id.tvLogin -> {
+        val intent = Intent(this, RegisterActivity::class.java)
+        resultLauncher.launch(intent)
+        // validation()
+      }
       R.id.tvSignUp -> startActivity(RegisterActivity.getStartIntent(this@SigninActivity, TAG))
       R.id.tvForgetPass -> startActivity(
-          ForgetPassActivity.getStartIntent(this@SigninActivity, TAG)
+        ForgetPassActivity.getStartIntent(this@SigninActivity, TAG)
       )
     }
   }

@@ -12,7 +12,8 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
 
-    <activity android:name="com.sazib.ksl.ui.loan_calculator.CalculatorActivity"
+    <activity
+        android:name="com.sazib.ksl.ui._registration.signin.SigninActivity"
         android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -44,10 +45,10 @@
     <activity
         android:name="com.sazib.ksl.ui._registration.forget_pass.ForgetPassActivity"
         android:exported="true" />
-
+<!--
     <activity
         android:name="com.sazib.ksl.ui._registration.signin.SigninActivity"
-        android:exported="true" />
+        android:exported="true" />-->
 
     <activity
         android:name="com.sazib.ksl.ui.todo.add_task.AddTaskActivity"

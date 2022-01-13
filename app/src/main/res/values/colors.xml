@@ -12,6 +12,7 @@
   <color name="bg_color_category">#f9fafb</color>
   <color name="bg_color_bill_memo">#F9FAFB</color>
   <color name="colorWhite">#FFFFFF</color>
+  <color name="off_white">#fffafa</color>
   <color name="colorBlack">#0A0903</color>
   <color name="colorRed">#FB3640</color>
   <color name="btn_border_color">#C4CAD0</color>

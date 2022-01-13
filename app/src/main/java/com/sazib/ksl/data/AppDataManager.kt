@@ -3,9 +3,10 @@ package com.sazib.ksl.data
 import com.sazib.ksl.data.db.AppDataHelper
 import com.sazib.ksl.data.service.App
 
-class AppDataManager  {
+class AppDataManager {
 
   val appDbHelper: AppDataHelper = AppDataHelper(App.getInstance())
+  // @Inject lateinit var api: ApiService
 
   companion object {
     private const val TAG = "AppDataManager"
