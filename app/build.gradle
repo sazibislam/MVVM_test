@@ -58,14 +58,14 @@ dependencies {
   testImplementation "org.mockito:mockito-core:$rootProject.mockito"
 
   // ui testing
-  androidTestImplementation 'androidx.test:core:1.4.1-alpha03'
+  androidTestImplementation 'androidx.test:core:1.4.1-alpha07'
 
   // junit rules
-  androidTestImplementation 'androidx.test:runner:1.4.1-alpha03'
-  androidTestImplementation 'androidx.test:rules:1.4.1-alpha03'
+  androidTestImplementation 'androidx.test:runner:1.5.0-alpha04'
+  androidTestImplementation 'androidx.test:rules:1.4.1-alpha07'
 
   // assertions
-  androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha03'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha07'
 
   // espresso dependencies
   androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso"
@@ -77,17 +77,23 @@ dependencies {
   androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$rootProject.espresso"
 
   // android support libraries
-  implementation 'androidx.appcompat:appcompat:1.4.0'
-  implementation 'androidx.fragment:fragment-ktx:1.4.0'
+  implementation 'androidx.appcompat:appcompat:1.4.2'
+  implementation 'androidx.fragment:fragment-ktx:1.4.1'
   implementation 'androidx.recyclerview:recyclerview:1.2.1'
   implementation 'androidx.cardview:cardview:1.0.0'
   implementation 'androidx.viewpager:viewpager:1.0.0'
   implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
   implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0'
-  implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+  implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
   implementation 'androidx.legacy:legacy-support-v4:1.0.0'
   implementation 'androidx.preference:preference-ktx:1.1.1'
-  implementation 'com.google.android.material:material:1.4.0'
+  implementation 'com.google.android.material:material:1.6.1'
+
+  //textSpanable
+  implementation 'com.jaychang:simpletext:2.0.1'
+
+  //pos printer
+  implementation 'com.github.DantSu:ESCPOS-ThermalPrinter-Android:3.2.0'
 
   // image
   implementation 'com.github.bumptech.glide:glide:4.12.0'

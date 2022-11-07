@@ -344,4 +344,10 @@
     <item name="android:strokeColor">@color/border_color</item>
   </style>
 
+  <declare-styleable name="DashedUnderlinedTextView">
+    <attr name="underlineWidth" format="dimension" />
+    <attr name="underlineColor" format="color" />
+    <attr name="underlinePadding" format="integer"/>
+  </declare-styleable>
+
 </resources>

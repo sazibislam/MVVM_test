@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable-v24/dotted_underline.xml" value="0.253" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable-xxhdpi/background_round.xml" value="0.2635416666666667" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/background_round.xml" value="0.2635416666666667" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/bottom_sheet_barcode_background.xml" value="0.2635416666666667" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/bottom_sheet_cart_background.xml" value="0.2635416666666667" />
+        <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/btn_border.xml" value="0.253" />
+        <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/dotted_line.xml" value="0.253" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/ic_dial.xml" value="0.2635416666666667" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/ic_edit.xml" value="0.2635416666666667" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/drawable/ic_submit_bill.xml" value="0.2635416666666667" />
@@ -17,27 +20,31 @@
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_edit_task.xml" value="0.264" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_forget_password.xml" value="0.24048913043478262" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_main.xml" value="0.23596014492753623" />
+        <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_main_audio.xml" value="0.2" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_register.xml" value="0.24048913043478262" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_reset_pass.xml" value="0.23596014492753623" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_signin.xml" value="0.23596014492753623" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_successful.xml" value="0.23596014492753623" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_test.xml" value="0.23596014492753623" />
+        <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_test2.xml" value="0.24739583333333334" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_todo_list.xml" value="0.24048913043478262" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_view_customer.xml" value="0.23596014492753623" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/activity_walkthrough.xml" value="0.23596014492753623" />
+        <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.264" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/button.xml" value="0.23596014492753623" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/list_item_task.xml" value="0.4" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/list_item_task_list.xml" value="0.24048913043478262" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/list_view_test.xml" value="0.264" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/row_view_add_task.xml" value="0.24048913043478262" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/row_view_loan.xml" value="0.24048913043478262" />
+        <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/row_view_test.xml" value="0.4" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/row_view_user.xml" value="0.24048913043478262" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/test_fragment.xml" value="0.24752475247524752" />
         <entry key="..\:/_workspace/test/MVVM_test/app/src/main/res/layout/toolbar_todo_list.xml" value="0.24048913043478262" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

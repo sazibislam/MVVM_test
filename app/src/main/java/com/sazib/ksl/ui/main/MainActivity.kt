@@ -8,6 +8,7 @@ import com.sazib.ksl.R
 import com.sazib.ksl.data.AppDataManager
 import com.sazib.ksl.ui._registration.signup.RegisterActivity
 import com.sazib.ksl.ui.base.BaseActivity
+import com.sazib.ksl.ui.main.ItemSearchDialogFragment.Companion
 import com.sazib.ksl.ui.view_customer.ViewCustomerActivity
 import com.sazib.ksl.utils.DataUtils.getPostalDetails
 import kotlinx.android.synthetic.main.activity_main.btnRegister
@@ -52,7 +53,13 @@ class MainActivity : BaseActivity(), OnClickListener, CoroutineScope {
 
     when (v?.id) {
       R.id.btnRegister -> startActivity(RegisterActivity.getStartIntent(this@MainActivity, TAG))
-      R.id.btnViewCustomer -> startActivity(ViewCustomerActivity.getStartIntent(this@MainActivity))
+      R.id.btnViewCustomer -> {
+
+        val itemSearchDialogFragment = ItemSearchDialogFragment.getStartIntent()
+        itemSearchDialogFragment.isCancelable = true
+        itemSearchDialogFragment.show(supportFragmentManager, itemSearchDialogFragment.tag)
+        // startActivity(ViewCustomerActivity.getStartIntent(this@MainActivity))
+      }
     }
   }
 
